@@ -36,6 +36,3 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
 ?>
 
 
-</body>
-
-</html>

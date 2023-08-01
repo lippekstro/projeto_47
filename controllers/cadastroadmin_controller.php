@@ -37,3 +37,5 @@ try {
             echo "Erro no banco de dados:" . $errorMessage; }
         exit();
     }
+
+    ?>

@@ -77,4 +77,14 @@ class Admin {
         $stmt->bindValue(':id_admin', $this->id_admin);
         $stmt->execute();
     }
+    public static function logar ($email_admin, $senha_admin) 
+    {
+        $query = "SELECT * FROM admins WHERE email_admin =:email_admin LIMIT 1";
+        $conexao = Conexao::conectar();
+        $stmt =$conexao->prepare($query);
+        $stmt->bindValue(':email',$email_admin);
+        $stmt-> execute();
+        $registro = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $registro; 
+} 
 } ?>

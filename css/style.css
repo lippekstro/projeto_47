@@ -3,3 +3,21 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+html,
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+main {
+    padding-bottom: 3rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+}

@@ -29,16 +29,17 @@ CREATE TABLE promocoes (
     FOREIGN KEY (id_categoria_promo) REFERENCES categoria_promo(id_categoria_promo)
 );
 
-CREATE TABLE comentario (
+/* CREATE TABLE comentario (
     id_comentario INT PRIMARY KEY AUTO_INCREMENT, 
     nome_autor VARCHAR(255) NOT NULL, 
     conteudo TEXT NOT NULL, 
     id_evento INT NOT NULL,
     FOREIGN KEY (id_evento) REFERENCES eventos(id_evento)
-);
+); */
 
 CREATE TABLE admins (
     id_admin INT PRIMARY KEY AUTO_INCREMENT, 
     nome_admin VARCHAR(255) NOT NULL, 
-    senha_admin VARCHAR(255) NOT NULL
+    senha_admin VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
 );

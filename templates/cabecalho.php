@@ -34,7 +34,7 @@
                             <a class="nav-link  text-white" href="/projeto_47/views/promocoes.php">Promoções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="/projeto_47/views/login.php">Login</a>
+                            <a class="nav-link  text-white" href="/projeto_47/views/admin/login.php">Login</a>
                         </li>
                     </ul>
                 </div>

@@ -78,8 +78,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                    <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
-                    <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
+                    <a href="/views/admin/adicionar_faq.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
+                    <a href="/views/admin/listar_faq.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
                     </div>
                     </div>
                 </div>

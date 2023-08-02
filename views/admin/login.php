@@ -1,7 +1,7 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 ?>
-<section class="vh-100">
+<section>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6 text-black">

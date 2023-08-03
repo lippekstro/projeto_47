@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 <?php if (isset ($_GET['erro'])):?>Email/Senha Incorretos <?php endif;?>
        
 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-    <form action="/angelaphp/biblioteca/controllers/login_controller.php" method="POST" style="width: 23rem;">
+    <form action="/projeto_47/controllers/login_controller.php" method="POST" style="width: 23rem;">
     <h3 class="fw-bold mb-5 text-center" style="letter-spacing: 1px;">Log in</h3>
     <div class="form-outline mb-4">
     <input type="email" id="form2Example18" class="form-control form-control-lg" name="email" required>

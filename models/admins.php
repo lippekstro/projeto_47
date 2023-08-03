@@ -77,14 +77,28 @@ class Admin {
         $stmt->bindValue(':id_admin', $this->id_admin);
         $stmt->execute();
     }
+
     public static function logar ($email_admin, $senha_admin) 
     {
         $query = "SELECT * FROM admins WHERE email_admin =:email_admin LIMIT 1";
         $conexao = Conexao::conectar();
         $stmt =$conexao->prepare($query);
-        $stmt->bindValue(':email',$email_admin);
-        $stmt-> execute();
+        $stmt->bindValue(':email_admin',$email_admin);
+        $stmt->execute();
         $registro = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $registro; 
+        
+        if(count($registro)>0 && password_verify($senha_admin, $registro['senha_admin'])){
+        session_destroy();
+        session_start();
+        session_regenerate_id(true);
+        $_SESSION['admin']['id'] = $registro ['id_admin'];
+        $_SESSION['admin']['nome'] = $registro ['nome_admin'];
+        $_SESSION['admin']['email'] = $registro ['email_admin'];
+        $_SESSION['admin']['inicio'] = time ();
+        $_SESSION['admin']['expira'] = 900;
+
+        header('Location:/projeto_47/views/admin/painel.php');
+        exit();
+        }
 } 
-} ?>
+}

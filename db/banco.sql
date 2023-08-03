@@ -43,3 +43,9 @@ CREATE TABLE admins (
     senha_admin VARCHAR(255) NOT NULL,
     email_admin VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE faqs (
+    id_faq INT PRIMARY KEY AUTO_INCREMENT,
+    faq_pergunta text not null,
+    faq_resposta text not null
+);

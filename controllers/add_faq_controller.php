@@ -22,7 +22,7 @@ try {
 
     setcookie('msg', "A FAQ foi adicionada com sucesso!", time() + 3600, '/projeto_47/');
     setcookie('tipo', 'sucesso', time() + 3600, '/projeto_47/');
-    header("Location: /carrinho/views/admin/painel.php");
+    header("Location: /projeto_47/views/admin/painel.php");
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();

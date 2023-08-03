@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 
 ?>
 
-<!-- <div class="btn-group">
+<!-- 
   <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
     Perfil do Usuário
   </button>
@@ -28,61 +28,61 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
         <div class="row">
             <div class="col"> 
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" style="height: 225px; width:100%; display:block" src="" data-holder-rendered="true">
+                    <img class="card-img-top" style="height: 225px; width:100%; display:block" src="/projeto_47/img/category.png" data-holder-rendered="true">
                     <div class="card-body">
                         <h4>Categorias</h4>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
+                    
+                    <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
                     <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
-                    </div>
+                    
                     </div>
                 </div>
             </div>
             <div class="col"> 
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="" data-holder-rendered="true">
+                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/show.jpeg" data-holder-rendered="true">
                     <div class="card-body">
                     <h4>Eventos</h4>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                    
                     <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
                     <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
-                    </div>
+                    
                     </div>
                 </div>
             </div>
             <div class="col"> 
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="" data-holder-rendered="true">
+                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/promo.jpg" data-holder-rendered="true">
                     <div class="card-body">
                     <h4>Promoções</h4>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                    
                     <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
                     <a href="/views/admin/adicionar_promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
-                    </div>
+                    
                     </div>
                 </div>
             </div>
             <div class="col"> 
                 <div class="card mb-4 shadow-sm">
-                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="" data-holder-rendered="true">
+                    <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/faqsimg.png" data-holder-rendered="true">
                     <div class="card-body">
                     <h4>FAQs</h4>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <a href="/views/admin/adicionar_faq.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
-                    <a href="/views/admin/listar_faq.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
-                    </div>
+                    
+                    <a href="/projeto_47/views/admin/listar_faqs.php"><button type="button" class="btn btn-sm btn-outline-secondary">Visualizar</button></a>
+                    <a href="/projeto_47/views/admin/adicionar_faq.php"><button type="button" class="btn btn-sm btn-outline-secondary">Adicionar</button></a>
+                
                     </div>
                 </div>
             </div>

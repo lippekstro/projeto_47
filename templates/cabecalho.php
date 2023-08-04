@@ -35,20 +35,20 @@
                         <li class="nav-item">
                             <a class="nav-link  text-white" href="/projeto_47/views/promocoes.php">Promoções</a>
                         </li>
-                        <?php if (!isset ($_SESSION['admin'])): ?>
-                        <li class="nav-item">
-                            <a class="nav-link  text-white" href="/projeto_47/views/admin/login.php">Login</a>
-                        </li>
-                       <?php else: ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Perfil
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/projeto_47/views/admin/painel.php">Painel</a></li>
-                                <li><a class="dropdown-item" href="/projeto_47/controllers/logout_controller.php">Sair</a></li>
-                            </ul>
-                        </li>
+                        <?php if (!isset($_SESSION['admin'])) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link  text-white" href="/projeto_47/views/admin/login.php">Login</a>
+                            </li>
+                        <?php else : ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Perfil
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/projeto_47/views/admin/painel.php">Painel</a></li>
+                                    <li><a class="dropdown-item" href="/projeto_47/controllers/logout_controller.php">Sair</a></li>
+                                </ul>
+                            </li>
                         <?php endif; ?>
                     </ul>
                 </div>

@@ -42,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -134,7 +134,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -157,7 +157,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -179,7 +179,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
 
 
@@ -210,7 +210,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         </p>
                         
                     </div>
-                    <button> <a href="#">Eu quero</a></button>
+                    <button> <a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -233,7 +233,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -256,7 +256,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -279,7 +279,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -302,7 +302,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -325,7 +325,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -347,7 +347,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
 
 
@@ -378,7 +378,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -401,7 +401,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -424,7 +424,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -447,7 +447,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -470,7 +470,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -493,7 +493,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button class="buttonCard"><a href="#">Eu quero</a></button>
+                    <button class="buttonCard"><a href="#">Saiba mais</a></button>
                 </div>
             </div>
 
@@ -515,7 +515,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             especial.
                         </p>
                     </div>
-                    <button><a href="#">Eu quero</a></button>
+                    <button><a href="#">Saiba mais</a></button>
                 </div>
 
 

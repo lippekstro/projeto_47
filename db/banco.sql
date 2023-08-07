@@ -6,7 +6,8 @@ CREATE TABLE categoria_evento(
 );
 
 CREATE TABLE eventos (
-    id_evento INT PRIMARY KEY AUTO_INCREMENT, 
+    id_evento INT PRIMARY KEY AUTO_INCREMENT,
+    --nome_evento varchar(255),
     local_evento VARCHAR(255) NOT NULL, 
     data_evento DATE NOT NULL, 
     descricao_evento TEXT, 
@@ -24,7 +25,10 @@ CREATE TABLE categoria_promo (
 
 CREATE TABLE promocoes (
     id_promo INT PRIMARY KEY AUTO_INCREMENT, 
-    nome_promo VARCHAR(255) NOT NULL, 
+    nome_promo VARCHAR(255) NOT NULL,
+    --img_promo LONGBLOB,
+    --descricao_promo varchar(255),
+    --link-promo varchar(255),
     id_categoria_promo INT NOT NULL,
     FOREIGN KEY (id_categoria_promo) REFERENCES categoria_promo(id_categoria_promo)
 );

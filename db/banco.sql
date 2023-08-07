@@ -24,6 +24,7 @@ CREATE TABLE categoria_promo (
 
 CREATE TABLE promocoes (
     id_promo INT PRIMARY KEY AUTO_INCREMENT, 
+    ID 
     nome_promo VARCHAR(255) NOT NULL, 
     id_categoria_promo INT NOT NULL,
     FOREIGN KEY (id_categoria_promo) REFERENCES categoria_promo(id_categoria_promo)

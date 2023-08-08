@@ -1,14 +1,14 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/evento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocao.php';
 ?>
 
-<?php $eventos = new Evento();
-try {
-    $listaEventos = $eventos->carregaEventosPaginaInicio();
-} catch (PDOException $erro) {
-    $erro->getMessage();
-}
-
+<?php 
+$eventos = new Evento();
+$promocoes = new Promocao();
+$listaEventos = $eventos->carregaEventosPaginaInicio();
+$listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
 ?>
 
 
@@ -45,22 +45,10 @@ try {
     </button>
 </div>
 
-
-<?php
-$promocoes = new Promocao();
-
-try {
-    $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
-} catch (PDOException $erro) {
-    echo $erro->getMessage();
-}
-
-?>
-
-
 <h2 style="color:black" class="text-center mt-3">Titulo aqui</h2>
+
 <!--cards de promoções-->
-<section id="promocoesRecentesCarrosel" class="mt-4 mb-5 d-flex justify-content-around flex-wrap">
+<section id="cardsPromocoesRecentes" class="mt-4 mb-5 d-flex justify-content-around flex-wrap">
     <?php foreach ($listaDePromocoes as $promocao) : ?>
         <div class="card mb-4" style="width: 18rem;">
             <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="..." style="max-height:11.944rem">

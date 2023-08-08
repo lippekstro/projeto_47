@@ -51,7 +51,7 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
 <section id="cardsPromocoesRecentes" class="mt-4 mb-5 d-flex justify-content-around flex-wrap">
     <?php foreach ($listaDePromocoes as $promocao) : ?>
         <div class="card mb-4" style="width: 18rem;">
-            <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="..." style="max-height:11.944rem">
+            <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="..." style="max-height:10.078rem">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $promocao['nome_promo'] ?></h5>
                 <p class="card-text"><?php echo $promocao['descricao_promo'] ?></p>

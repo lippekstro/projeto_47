@@ -1,12 +1,11 @@
-<?php $_SERVER['DOCUMENT_ROOT']. '/projeto47/db/conexao.php'?>
-
-<?php
+<?php $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
 
 class Promocao{
 
     public $id_promo;
-    public $nome_promo;
+    public $nome_promo;  
     public $id_categoria_promo;
+    public img_promo;
     public $descricao_promo;
     public $link_promo;
 

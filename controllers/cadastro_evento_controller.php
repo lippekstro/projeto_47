@@ -5,16 +5,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         return htmlspecialchars(trim($dados));
     }
 
-    $nomeEvento = limparDados($_POST["nomeEvento"]);
+    $titulo = limparDados($_POST["tituloEvento"]);
+    $latitude = limparDados($_POST["latitudeEvento"]);
+    $longitude = limparDados($_POST["longitudeEvento"]);
     $dataEvento = limparDados($_POST["dataEvento"]);
     $localEvento = limparDados($_POST["localEvento"]);
     $descricaoEvento = limparDados($_POST["descricaoEvento"]);
     $precoEvento = isset($_POST["precoEvento"]) ? floatval($_POST["precoEvento"]) : null;
     $linkEvento = isset($_POST["linkEvento"]) ? limparDados($_POST["linkEvento"]) : null;
     $categoriaEvento = limparDados($_POST["categoriaEvento"]);
-
+    
    
-    if (empty($nomeEvento) || empty($dataEvento) || empty($localEvento) || empty($descricaoEvento) || empty($categoriaEvento)) {
+    if (empty($titulo) || empty($latitude) || empty($longitude) || empty($dataEvento) || empty($localEvento) || empty($descricaoEvento) || empty($categoriaEvento)) {
         echo "Erro: Todos os campos obrigatórios devem ser preenchidos.";
         exit;
     }
@@ -60,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $imagemEvento = null;
         }
 
-        $sql = "INSERT INTO eventos (local_evento, data_evento, descricao_evento, preco, link_evento, img_evento, id_categoria) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO eventos (titulo, latitude, longitude, local_evento, data_evento, descricao_evento, preco, link_evento, img_evento, id_categoria) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexao->prepare($sql);
 
         if (!$stmt) {
@@ -69,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
 
-        $stmt->bind_param("sssdssi", $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $imagemEvento, $categoriaEvento);
+        $stmt->bind_param("ssssssdssi", $titulo, $latitude, $longitude, $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $imagemEvento, $categoriaEvento);
 
         if ($stmt->execute()) {
             echo "Evento cadastrado com sucesso!";

@@ -1,6 +1,6 @@
-<?php $_SERVER['DOCUMENT_ROOT']. '/projeto47/db/conexao.php'?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
 
-<?php class Evento{
+class Evento{
 
     public $id_evento;
     public $nome_evento;

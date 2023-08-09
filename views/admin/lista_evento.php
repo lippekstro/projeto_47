@@ -5,15 +5,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
     <h1 class="text-center">Lista de Eventos</h1>
     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
     <table class="table table-bordered">
+    <thead>
         <tr>
-            <th>Local</th>
-            <th>Data</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Link</th>
-            <th>Categoria</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+            <th class="" scope="col">Local</th>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Link</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
         </tr>
         <?php
         $servername = "localhost";
@@ -43,7 +44,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 echo "<td>" . $row["link_evento"] . "</td>";
                 echo "<td>" . $row["nome_categoria_evento"] . "</td>";
                 echo "<td><a href='editar_evento.php?id=" . $row["id_evento"] . "'>Editar</a></td>";
-                echo "<td><a href='javascript:void(0);' onclick='excluirEvento(" . $row["id_evento"] . ");'>Excluir</a></td>";
+                echo "<td><a href='/projeto_47/controllers/excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
                 echo "</tr>";
             }
         } else {
@@ -53,19 +54,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
         $conn->close();
         ?>
     </table>
-
-    <script>
-    function excluirEvento(id) {
-        if (confirm("Tem certeza que deseja excluir o evento?")) {
-        
-            var row = document.getElementById("evento-" + id);
-            if (row) {
-                row.style.display = "none";
-            }
-        }
-    }
-    </script>
+    </thead>
     </div>
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
 ?>
+

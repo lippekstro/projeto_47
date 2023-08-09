@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: linear-gradient(232deg, rgba(21, 137, 203, 1) 49%, rgba(117, 208, 227, 1) 100%);
-  font-family: initial;
+  /* background: linear-gradient(232deg, rgba(21, 137, 203, 1) 49%, rgba(117, 208, 227, 1) 100%); */
 }
 
 button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
@@ -26,11 +28,10 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
 
 .containerBody h1 {
   margin: 5px 0px;
-  color: white;
-  border-bottom: 1.5px solid rgb(255, 255, 255);
+  color: black;
+  border-bottom: 1.5px solid rgb(0, 0, 0);
   width: 60%;
   font-weight: bolder;
-  font-family: initial;
 }
 
 ::-webkit-scrollbar {
@@ -69,7 +70,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   transform: scale(0.9);
 }
 
-.card_box span {
+.card span {
   position: absolute;
   overflow: hidden;
   width: 150px;
@@ -81,7 +82,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   justify-content: center;
 }
 
-.card_box span::before {
+.card span::before {
   content: 'promoções';
   position: absolute;
   width: 150%;
@@ -98,7 +99,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
 }
 
-.card_box span::after {
+.card span::after {
   content: '';
   position: absolute;
   width: 10px;
@@ -233,7 +234,6 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   color: white;
   border: none;
   font-weight: bolder;
-  font-family: initial;
 }
 
 
@@ -280,7 +280,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   transform: none;
 }
 
-.card_box span {
+.card_body span {
   width: 128px;
   height: 116px;
   top: 0px;
@@ -288,7 +288,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
 }
 
 
-.card_box span::before {
+.card-body span::before {
   font-size: 9pt;
   content: 'promoções';
   position: absolute;
@@ -306,7 +306,7 @@ button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled)
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
 }
 
-.card_box span::after {
+.card-body span::after {
   content: '';
   position: absolute;
   width: 20px;

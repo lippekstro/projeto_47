@@ -44,7 +44,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 echo "<td>" . $row["link_evento"] . "</td>";
                 echo "<td>" . $row["nome_categoria_evento"] . "</td>";
                 echo "<td><a href='editar_evento.php?id=" . $row["id_evento"] . "'>Editar</a></td>";
-                echo "<td><a href='excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
+                echo "<td><a href='/projeto_47/controllers/excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
                 echo "</tr>";
             }
         } else {

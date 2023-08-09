@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
         $stmt->bindParam(':id_evento', $idEvento, PDO::PARAM_INT);
         $stmt->execute();
 
-        echo 'Evento excluído com sucesso!';
+        header("Location: /projeto_47/views/admin/lista_evento.php");
     } catch (PDOException $e) {
         echo 'Erro ao excluir o evento: ' . $e->getMessage();
     }

@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("ssssssdssi", $titulo, $latitude, $longitude, $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $uploadedFileName, $categoriaEvento);
 
         if ($stmt->execute()) {
-            echo "Evento cadastrado com sucesso!";
+            header("Location: /projeto_47/views/admin/lista_evento.php");
         } else {
             echo "Erro ao cadastrar o evento: " . $stmt->error;
         }

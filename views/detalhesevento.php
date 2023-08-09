@@ -213,7 +213,7 @@ try {
             <p class="event-info">Data: <?= $data_evento ?></p>
             <p class="event-info">Descrição: <?= $evento->descricao_evento ?></p>
             <p class="event-info">Preço: R$ <?= number_format($evento->preco, 2, ',', '.') ?></p>
-            <p class="event-info">Link: <a href="<?= $evento->link_evento ?>"><?= $evento->link_evento ?></a></p>
+            <p class="event-info">Link: <a href="<?= $evento->link_evento ?>" target="_blank"><?= $evento->link_evento ?></a></p>
             <div id="map-<?= $evento->id_evento ?>" style="height: 300px;"></div>
         </div>
     </div>

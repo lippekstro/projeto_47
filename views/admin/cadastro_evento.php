@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 ?>
 <h1 class="text-center">Cadastro de Evento</h1>

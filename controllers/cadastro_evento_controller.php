@@ -40,27 +40,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($result_categoria->num_rows > 0) {
         
-        $targetDirectory = "path/to/your/image/directory/";
+        /* $targetDirectory = "path/to/your/image/directory/";
         if (!is_dir($targetDirectory)) {
             mkdir($targetDirectory, 0755, true); 
-        }
+        } */
 
-        $uploadedFileName = basename($_FILES["imagemEvento"]["name"]);
-        $uploadedFileName = preg_replace("/[^a-zA-Z0-9._-]/", "", $uploadedFileName); 
-        $targetFilePath = $targetDirectory . $uploadedFileName;
+        $uploadedFileName = file_get_contents($_FILES["imagemEvento"]["tmp_name"]);
+        /* $uploadedFileName = preg_replace("/[^a-zA-Z0-9._-]/", "", $uploadedFileName); 
+        $targetFilePath = $targetDirectory . $uploadedFileName; */
 
         if ($_FILES["imagemEvento"]["error"] !== UPLOAD_ERR_OK) {
             echo "Erro no upload do arquivo: " . $_FILES["imagemEvento"]["error"];
             exit;
         }
 
-        if (move_uploaded_file($_FILES["imagemEvento"]["tmp_name"], $targetFilePath)) {
+        /* if (move_uploaded_file($_FILES["imagemEvento"]["tmp_name"], $targetFilePath)) {
            
             $imagemEvento = $targetFilePath;
         } else {
            
             $imagemEvento = null;
-        }
+        } */
 
         $sql = "INSERT INTO eventos (titulo, latitude, longitude, local_evento, data_evento, descricao_evento, preco, link_evento, img_evento, id_categoria) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
 
-        $stmt->bind_param("ssssssdssi", $titulo, $latitude, $longitude, $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $imagemEvento, $categoriaEvento);
+        $stmt->bind_param("ssssssdssi", $titulo, $latitude, $longitude, $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $uploadedFileName, $categoriaEvento);
 
         if ($stmt->execute()) {
             echo "Evento cadastrado com sucesso!";

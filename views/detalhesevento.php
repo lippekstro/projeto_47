@@ -207,7 +207,7 @@ try {
         </div>
         <div class="col">
             <h1 class="event-info"><?= $evento->titulo ?></h1>
-            <p class="event-info">Categoria: </p>
+            <p class="event-info">Categoria: <?= $evento->getCategoria(); ?></p>
             <p class="event-info">Local: <?= $evento->local_evento ?></p>
             <?php $data_evento = date('d/m/Y', strtotime($evento->data_evento)) ?>
             <p class="event-info">Data: <?= $data_evento ?></p>

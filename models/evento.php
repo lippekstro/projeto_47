@@ -48,11 +48,20 @@ class Evento {
 
     public static function listar()
     {
-        $query = "SELECT * FROM eventos";
+        $query = "SELECT e.*, ce.nome_categoria_evento FROM eventos e JOIN categoria_evento ce ON e.id_categoria = ce.id_categoria_evento ORDER BY data_evento DESC";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->execute();
         $lista = $stmt->fetchAll();
         return $lista;
+    }
+
+    public function getCategoria(){
+        $query = "SELECT e.*, ce.nome_categoria_evento FROM eventos e JOIN categoria_evento ce ON e.id_categoria = ce.id_categoria_evento";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->execute();
+        $lista = $stmt->fetch();
+        return $lista['nome_categoria_evento'];
     }
 }

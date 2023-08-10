@@ -1,5 +1,13 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_evento.php';
+
+try {
+    $categorias = CategoriaEvento::listar();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 ?>
 
 <h1 class="text-center">Lista Categorias</h1>
@@ -11,34 +19,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
             </tr>
         </thead>
         <tbody>
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "projeto_47";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Falha na conexão: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM categoria_evento";
-
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["nome_categoria_evento"] . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='1'>Nenhuma categoria encontrada.</td></tr>";
-            }
-
-            $conn->close();
-            ?>
+            <?php foreach ($categorias as $c) : ?>
+                <tr>
+                    <td><?= $c['nome_categoria_evento'] ?></td>
+                    <td><a href="/projeto_47/views/admin/editar_categoria_evento.php?id=<?= $c['id_categoria_evento'] ?>">Editar</a></td>
+                    <td><a href="/projeto_47/controllers/delete_cat_evento_controller.php?id=<?= $c['id_categoria_evento'] ?>">Excluir</a></td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

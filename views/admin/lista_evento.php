@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
     <table class="table table-bordered">
     <thead>
         <tr>
-            <th class="" scope="col">Local</th>
+            <th scope="col">Local</th>
             <th scope="col">Data</th>
             <th scope="col">Descrição</th>
             <th scope="col">Preço</th>

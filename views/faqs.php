@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/faq.php';
 
@@ -7,6 +9,7 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
+
 ?>
 
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">

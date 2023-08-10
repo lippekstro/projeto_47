@@ -7,13 +7,16 @@ CREATE TABLE categoria_evento(
 
 CREATE TABLE eventos (
     id_evento INT PRIMARY KEY AUTO_INCREMENT,
-    --nome_evento varchar(255),
+    titulo VARCHAR(255) NOT NULL,
     local_evento VARCHAR(255) NOT NULL, 
     data_evento DATE NOT NULL, 
     descricao_evento TEXT, 
     preco DECIMAL(10,2),
     link_evento VARCHAR(255), 
-    img_evento LONGBLOB, 
+    img_evento LONGBLOB,
+    longitude FLOAT,
+    latitude FLOAT,
+    curtidas INT NOT NULL DEFAULT 0,
     id_categoria INT NOT NULL,
     FOREIGN KEY (id_categoria) REFERENCES categoria_evento(id_categoria_evento)
 );
@@ -30,6 +33,7 @@ CREATE TABLE promocoes (
     --descricao_promo varchar(255),
     --link-promo varchar(255),
     id_categoria_promo INT NOT NULL,
+    cupom VARCHAR(255),
     FOREIGN KEY (id_categoria_promo) REFERENCES categoria_promo(id_categoria_promo)
 );
 
@@ -45,7 +49,7 @@ CREATE TABLE admins (
     id_admin INT PRIMARY KEY AUTO_INCREMENT, 
     nome_admin VARCHAR(255) NOT NULL, 
     senha_admin VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
+    email_admin VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE faqs (

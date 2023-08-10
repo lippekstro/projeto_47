@@ -1,10 +1,9 @@
 <?php
+session_start();
 require_once $_SERVER["DOCUMENT_ROOT"] . "/projeto_47/models/faq.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/projeto_47/configs/utils.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/projeto_47/configs/sessoes.php";
 
-
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['nv_acesso'] < 2) {
+if (!isset($_SESSION['admin'])) {
     setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/projeto_47/');
     setcookie('tipo', 'perigo', time() + 3600, '/projeto_47/');
     header('Location: /projeto_47/index.php');
@@ -22,7 +21,7 @@ try {
 
     setcookie('msg', "A FAQ foi adicionada com sucesso!", time() + 3600, '/projeto_47/');
     setcookie('tipo', 'sucesso', time() + 3600, '/projeto_47/');
-    header("Location: /projeto_47/views/admin/painel.php");
+    header("Location: /projeto_47/views/admin/listar_faqs.php");
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();

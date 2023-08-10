@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (isset($_COOKIE['msg'])) {
     setcookie('msg', '', time() - 3600, '/projeto_47/');
     setcookie('tipo', '', time() - 3600, '/projeto_47/');
@@ -7,12 +9,12 @@ if (isset($_COOKIE['msg'])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/faq.php';
 
-/* if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['nv_acesso'] < 2) {
+if (!isset($_SESSION['admin'])) {
     setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/projeto_47/');
     setcookie('tipo', 'perigo', time() + 3600, '/projeto_47/');
     header('Location: /projeto_47/index.php');
     exit();
-} */
+}
 
 try {
     $faq = new Faq($_GET['id']);
@@ -58,7 +60,6 @@ try {
             <button class="btn btn-primary w-100 py-2" type="submit">Atualizar</button>
         </form>
     </div>
-
 </section>
 
 <?php

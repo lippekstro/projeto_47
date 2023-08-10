@@ -10,22 +10,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
             <label class="form-label" for="form3Example1">Nome/Username</label>
         </div>
 
-
         <div class="form-outline mb-4">
             <input type="email" id="form3Example3" name=email class="form-control" />
             <label class="form-label" for="form3Example3">Email</label>
         </div>
-
 
         <div class="form-outline mb-4">
             <input type="password" id="form3Example4" class="form-control" name="senha" />
             <label class="form-label" for="form3Example4">Senha</label>
         </div>
 
-
         <button type="reset" class="btn btn-info btn-lg btn-block">Limpar</button>
         <button type="submit" class="btn btn-info btn-lg btn-block">Cadastrar</button>
-
     </form>
 </div>
 

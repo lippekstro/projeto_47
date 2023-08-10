@@ -9,7 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading"> Painel de Administrador </h1>
-            <p class="lead text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+            <p class="lead text-muted">Nesse painel admnistrativo você pode gerenciar todos os aspectos do sistema</p>
         </div>
     </section>
     <div class="album py-5 bg-light">
@@ -20,11 +20,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         <img class="card-img-top" style="height: 225px; width:100%; display:block" src="/projeto_47/img/dummy.png" data-holder-rendered="true">
                         <div class="card-body">
                             <h4>Categorias</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="card-text">Gerencie as categorias de Eventos.</p>
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
-                            <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
-                            <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Adicionar</button></a>
+                            <a href="/projeto_47/views/admin/lista_categoria.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
+                            <a href="/projeto_47/views/admin/cadastro_categoria.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Adicionar</button></a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/dummy.png" data-holder-rendered="true">
                         <div class="card-body">
                             <h4>Eventos</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p class="card-text">Gerencie os Eventos.</p>
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
                             <a href="/projeto_47/views/admin/lista_evento.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
@@ -46,7 +46,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/dummy.png" data-holder-rendered="true">
                         <div class="card-body">
                             <h4>Promoções</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p class="card-text">Gerencie as Promoções.</p>
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
                             <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
@@ -59,7 +59,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         <img class="card-img-top" style="height: 225px;width:100%; display:block" src="/projeto_47/img/dummy.png" data-holder-rendered="true">
                         <div class="card-body">
                             <h4>FAQs</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <p class="card-text">Gerencie as FAQs.</p>
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
                             <a href="/projeto_47/views/admin/listar_faqs.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>

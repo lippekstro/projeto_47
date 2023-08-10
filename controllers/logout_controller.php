@@ -2,6 +2,7 @@
 
 session_start();
 
+session_unset();
 // Destruir a sessão (apagar todas as variáveis de sessão)
 session_destroy();
 

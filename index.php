@@ -28,7 +28,7 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
             <div class="carousel-item<?php echo $ativar ?>">            
                 <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($evento['img_evento']) ?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 class="text-warning fs-2"><?php echo $evento['nome_evento'] ?></h5>
+                    <h5 class="text-warning fs-2"><?php echo $evento['titulo'] ?></h5>
                     <p class="text-warning fs-3">Some representative placeholder content for the first slide.</p>
                 </div>
             </div>

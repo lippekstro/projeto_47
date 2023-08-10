@@ -50,7 +50,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
                             <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Visualizar</button></a>
-                            <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Adicionar</button></a>
+                            <a href="adiciona-promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary m-1">Adicionar</button></a>
                         </div>
                     </div>
                 </div>

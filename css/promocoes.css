@@ -5,24 +5,36 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+html{
+  height: 100vh;
+}
 body{
-  background-color: #252525;
-
+  background-color: #c5c5c5;
+}
+.conteiner-grade{
+  position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  width: 70%;
+  height: auto;
+}
+.categoria-promo{
+  font-size: 20pt;
 }
   .container-card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-  } 
-  
+  }
   .card_box {
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
     border-radius: 20px;
     background: linear-gradient(170deg, rgba(255, 255, 255, 0.623) 0%, rgb(255, 255, 255) 100%);
     position: relative;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.103);
     cursor: pointer;
     transition: all 0.3s;
   }
@@ -46,8 +58,9 @@ body{
   .card_box span::before {
     content: 'Promoções';
     position: absolute;
+    font-size: 12pt;
     width: 150%;
-    height: 40px;
+    height: 30px;
     background-image: linear-gradient(45deg, #13293d 0%, #1b98e0  51%, #006494  100%);
     transform: rotate(-45deg) translateY(-20px);
     display: flex;
@@ -71,14 +84,22 @@ body{
     box-shadow: 140px -140px #13293d;
     background-image: linear-gradient(45deg, #13293d 0%, #1b98e0  51%, #006494  100%);
   }
-  .card-img {
+  .card-img img{
+/*     background-image: url(/hotdev/sistema_de_gerenciamento/img/burguer-lukas.jpg);
+ */    height: 60%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 0.5rem;
+    transition: 0.3s ease;
+   }
+/*   .card-img{
     background-image: url(/hotdev/sistema_de_gerenciamento/img/burguer-lukas.jpg);
     height: 60%;
     width: 100%;
     background-size: cover;
     border-radius: 0.5rem;
     transition: 0.3s ease;
-   }
+   } */
  
    .card-info {
     padding-left: 3%;
@@ -102,14 +123,14 @@ body{
    /*Text*/
    .text-title {
     font-weight: 900;
-    font-size: 1.2em;
+    font-size: 0.9em;
     line-height: 1.5;
     padding-bottom: 10px;
 
    }
    
    .text-body {
-    font-size: .9em;
+    font-size: .7em;
     padding-bottom: 10px;
    }
    
@@ -162,7 +183,7 @@ body{
     color: #333;
   }
   /* BOTÃO SAIBA MAIS */
-  .button {
+  /* .button {
     padding: 1em 2em;
     border: none;
     border-radius: 5px;
@@ -175,7 +196,7 @@ body{
     position: relative;
     overflow: hidden;
     outline: 2px solid #1b98e0;
-    margin: 10px;
+    margin: 5px;
   
   }
  
@@ -201,10 +222,57 @@ body{
   
   button:hover::before {
     width: 250%;
-  }
+  } */
   /* Carrousel */
-  .swiper {
-    width: 100%;
+  .carousel-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 10px;
   }
-
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card {
+    flex: 0 0 320px;
+    height: 400px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/*     margin: 2px;
+ */    font-size: 24px;
+  }
+  
+  button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  button:hover {
+    background-color: #3b9aff;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
   

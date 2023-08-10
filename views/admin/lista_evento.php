@@ -8,6 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
     <table class="table table-bordered">
     <thead>
         <tr>
+            <th scope="col">Nome Evento</th>
             <th scope="col">Local</th>
             <th scope="col">Data</th>
             <th scope="col">Descrição</th>
@@ -38,6 +39,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
+                echo "<td>" . $row["titulo"] . "</td>";
                 echo "<td>" . $row["local_evento"] . "</td>";
                 echo "<td>" . $row["data_evento"] . "</td>";
                 echo "<td>" . $row["descricao_evento"] . "</td>";

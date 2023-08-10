@@ -1,5 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php'; ?>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    .contenBody {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 3% 0%;
+    }
+
+    .contenBody h1 {
+        margin: 5px 0px;
+        color: black;
+        border-bottom: 1.5px solid rgb(0, 0, 0);
+        width: 60%;
+        font-weight: bolder;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+
+
+    .conten {
+        display: flex;
+        margin: 0% 2%;
+    }
+
+    .card_box {
+        width: 200px;
+        height: 250px;
+        border-radius: 20px;
+        background: linear-gradient(170deg, rgba(206, 221, 226, 0.623) 0%, #ffffff 100%);
+        position: relative;
+        box-shadow: 17px 14px 33px -1px rgba(0, 0, 0, 0.55);
+        cursor: pointer;
+        transition: all .3s;
+        margin: 3%;
+    }
+
+    .card_box:hover {
+        transform: scale(0.9);
+    }
+
+    .card span {
+        position: absolute;
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+        top: -10px;
+        left: -10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card span::before {
+        content: 'promoções';
+        position: absolute;
+        width: 150%;
+        height: 40px;
+        background-image: linear-gradient(45deg, #ff6547 0%, #ffb144 51%, #ff7053 100%);
+        transform: rotate(-45deg) translateY(-20px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+    }
+
+    .card span::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        bottom: 0;
+        left: 0;
+        height: 10px;
+        z-index: -1;
+        box-shadow: 140px -140px #cc3f47;
+        background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    }
+
+    .card_box p {
+        color: black;
+        font-family: emoji;
+        font-size: 9pt;
+        text-align: left;
+        margin-top: 4%;
+        margin-left: 7%;
+    }
+
+    .card_box .question-icon {
+        color: black;
+        display: flex;
+        font-family: emoji;
+        font-size: 9pt;
+        text-align: left;
+        margin-top: 108%;
+        width: 11%;
+    }
+
+    .info-box {
+        display: none;
+        position: absolute;
+        top: 7%;
+        left: 16%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        width: 75%;
+        height: 80%;
+        z-index: 1;
+        border-radius: 10px;
+
+    }
+
+    .info-box p {
+        font-size: 7pt;
+        color: #fff;
+    }
+
+    .card_box .question-icon:active+.info-box {
+        display: block;
+    }
 
     .question-icon {
         cursor: pointer;

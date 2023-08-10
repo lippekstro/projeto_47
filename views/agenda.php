@@ -1,6 +1,13 @@
 <?php
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/evento.php';
+
+try {
+    $eventos = Evento::listar();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 ?>
 
 <style>
@@ -60,39 +67,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
         <th>Descrição</th>
         <th>Preço</th>
         <th>Link</th>
+        <th>Detalhes</th>
         <!--<th>id_categoria</th>-->
     </tr>
-    <?php
-    $conn = new mysqli("localhost", "root", "", "projeto_47");
-    if ($conn->connect_error) {
-        die("Erro na conexão: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT id_evento, data_evento, local_evento, descricao_evento, preco, link_evento, id_categoria FROM eventos";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo '<tr>';
-            echo '<td>' . $row["id_evento"] . '</td>';
-            echo '<td>' . $row["data_evento"] . '</td>';
-            echo '<td>' . $row["local_evento"] . '</td>';
-            echo '<td>' . $row["descricao_evento"] . '</td>';
-            echo '<td>' . $row["preco"] . '</td>';
-
-
-            // Adicione um link para exibir os detalhes do evento usando o ID do evento
-            echo '<td><a href="detalhesevento.php?id_evento=' . $row["id_evento"] . '">Ver Detalhes</a></td>';
-
-            echo '</tr>';
-        }
-    } else {
-        echo '<tr><td colspan="5">Nenhum evento encontrado</td></tr>';
-    }
-
-    $conn->close();
-    ?>
-
+    <?php foreach ($eventos as $e) : ?>
+        <tr>
+            <td><?= $e['titulo'] ?></td>
+            <td><?= $e['data_evento'] ?></td>
+            <td><?= $e['local_evento'] ?></td>
+            <td><?= $e['descricao_evento'] ?></td>
+            <td><?= $e['preco'] ?></td>
+            <td><?= $e['link_evento'] ?></td>
+            <td><a href="detalhesevento.php?id_evento=<?= $e["id_evento"] ?>">Ver Detalhes</a></td>
+        </tr>
+    <?php endforeach; ?>
 </table>
 
 <?php

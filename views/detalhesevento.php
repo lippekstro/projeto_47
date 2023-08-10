@@ -130,7 +130,7 @@ try {
         margin-top: 20px;
     }
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp9GsGyQ65nk3oa47waSygq2_3Znjvdsg&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= CHAVE_API_MAPS?>&callback=initMap"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
 <script>

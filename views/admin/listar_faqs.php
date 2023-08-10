@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_COOKIE['msg'])){
+if (isset($_COOKIE['msg'])) {
     setcookie('msg', '', time() - 3600, '/projeto_47/');
     setcookie('tipo', '', time() - 3600, '/projeto_47/');
 }

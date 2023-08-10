@@ -3,7 +3,7 @@
 class Evento{
 
     public $id_evento;
-    public $nome_evento;
+    public $titulo;
     public $local_evento;
     public $data_evento;
     public $descricao_evento;

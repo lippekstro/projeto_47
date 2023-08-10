@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 ?>
 
     <h1 class="text-center">Lista de Eventos</h1>
-    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+    <div class="table-responsive-xxl">
     <table class="table table-bordered">
     <thead>
         <tr>

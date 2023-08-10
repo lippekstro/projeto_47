@@ -15,7 +15,7 @@ class Evento{
     public function carregaEventosPaginaInicio(){
         try{
             $conexao = Conexao::conectar();
-            $statement = $conexao->prepare('SELECT nome_evento, descricao_evento, img_evento, link_evento FROM eventos ORDER BY ID_EVENTO DESC LIMIT 3');
+            $statement = $conexao->prepare('SELECT titulo, descricao_evento, img_evento, link_evento FROM eventos ORDER BY ID_EVENTO DESC LIMIT 3');
             $statement->execute();
             $listaDeEventos = $statement->fetchAll();
             return $listaDeEventos;

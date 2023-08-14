@@ -77,14 +77,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php'; 
 <div class="cards-container">
     <div class="card left-card">
         <a href="/projeto_47/views/agenda.php">
-            <img src="/projeto_47/img/dummy.png" alt="">
+            <img src="/projeto_47/img/agenda.png" alt="">
             <h3>Agenda</h3>
         </a>
     </div>
 
     <div class="card right-card">
         <a href="/projeto_47/views/galeria.php">
-            <img src="/projeto_47/img/dummy.png" alt="">
+            <img src="/projeto_47/img/galeria.png" alt="">
             <h3>Galeria de fotos e Videos</h3>
         </a>
     </div>

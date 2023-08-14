@@ -9,14 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $link_promo = $_POST['link_promo'];
     $descricao_promo = $_POST['descricao_promo'];
     $cupom = $_POST['cupom'];
+    $categoria = $_POST['id_categoria'];
 
-    if (isset($_FILES['img_promo']) && $_FILES['img_promo']['error'] === UPLOAD_ERR_OK) {
-        $img_promo_name = $_FILES['img_promo']['name'];
-        $img_promo_tmp = $_FILES['img_promo']['tmp_name'];
-        move_uploaded_file($img_promo_tmp, $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/uploads/' . $img_promo_name);
-    } else {
-        $img_promo_name = ''; 
+    if (!empty($_FILES['img_promo']['tmp_name'])) {
+        $imagem = file_get_contents($_FILES['img_promo']['tmp_name']);
     }
+
 
     $nova_promocao = new Promocoes();
     $nova_promocao->nome_promo = $nome_promo;
@@ -25,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nova_promocao->link_promo = $link_promo;
     $nova_promocao->descricao_promo = $descricao_promo;
     $nova_promocao->cupom = $cupom;
-    $nova_promocao->img_promo = $img_promo_name;
+    $nova_promocao->img_promo = $imagem;
+    $nova_promocao->id_categoria_promo = $categoria;
 
     $nova_promocao->criar();
 

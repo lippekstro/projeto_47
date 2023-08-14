@@ -10,6 +10,7 @@ class Promocoes {
     public $descricao_promo;
     public $cupom;
     public $img_promo;
+    public $id_categoria_promo;
 
     public function __construct($id_promo = false) {
         if ($id_promo) {
@@ -19,7 +20,7 @@ class Promocoes {
     }
 
     public function carregar() {
-        $query = "SELECT nome_promo, prazo_promo, local_promo, link_promo, descricao_promo, cupom, img_promo FROM promocoes WHERE id_promo = :id_promo";
+        $query = "SELECT * FROM promocoes WHERE id_promo = :id_promo";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id_promo', $this->id_promo);
@@ -32,10 +33,11 @@ class Promocoes {
         $this->descricao_promo = $promocao['descricao_promo'];
         $this->cupom = $promocao['cupom'];
         $this->img_promo = $promocao['img_promo'];
+        $this->id_categoria_promo = $promocao['id_categoria_promo'];
     }
 
     public function criar() {
-        $query = "INSERT INTO promocoes (nome_promo, prazo_promo, local_promo, link_promo, descricao_promo, cupom, img_promo) VALUES (:nome_promo, :prazo_promo, :local_promo, :link_promo, :descricao_promo, :cupom, :img_promo)";
+        $query = "INSERT INTO promocoes (nome_promo, prazo_promo, local_promo, link_promo, descricao_promo, cupom, img_promo, id_categoria_promo) VALUES (:nome_promo, :prazo_promo, :local_promo, :link_promo, :descricao_promo, :cupom, :img_promo, :cat)";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':nome_promo', $this->nome_promo);
@@ -45,13 +47,14 @@ class Promocoes {
         $stmt->bindValue(':descricao_promo', $this->descricao_promo);
         $stmt->bindValue(':cupom', $this->cupom);
         $stmt->bindValue(':img_promo', $this->img_promo);
+        $stmt->bindValue(':cat', $this->id_categoria_promo);
         $stmt->execute();
         $this->id_promo = $conexao->lastInsertId();
         return $this->id_promo;
     }
 
     public function editar() {
-        $query = "UPDATE promocoes SET nome_promo = :nome_promo, prazo_promo = :prazo_promo, local_promo = :local_promo, link_promo = :link_promo, descricao_promo = :descricao_promo, cupom = :cupom, img_promo = :img_promo WHERE id_promo = :id_promo";
+        $query = "UPDATE promocoes SET nome_promo = :nome_promo, prazo_promo = :prazo_promo, local_promo = :local_promo, link_promo = :link_promo, descricao_promo = :descricao_promo, cupom = :cupom, id_categoria_promo = :cat WHERE id_promo = :id_promo";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->bindValue(':id_promo', $this->id_promo);
@@ -61,7 +64,7 @@ class Promocoes {
         $stmt->bindValue(':link_promo', $this->link_promo);
         $stmt->bindValue(':descricao_promo', $this->descricao_promo);
         $stmt->bindValue(':cupom', $this->cupom);
-        $stmt->bindValue(':img_promo', $this->img_promo);
+        $stmt->bindValue(':cat', $this->id_categoria_promo);
         $stmt->execute();
     }
 

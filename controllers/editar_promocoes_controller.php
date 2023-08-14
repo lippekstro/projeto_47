@@ -10,6 +10,7 @@ try {
         $link_promo = $_POST['link_promo'];
         $descricao_promo = $_POST['descricao_promo'];
         $cupom = $_POST['cupom'];
+        $categoria = $_POST['id_categoria'];
 
         $promocao = new Promocoes($id_promo);
         $promocao->nome_promo = $nome_promo;
@@ -18,6 +19,7 @@ try {
         $promocao->link_promo = $link_promo;
         $promocao->descricao_promo = $descricao_promo;
         $promocao->cupom = $cupom;
+        $promocao->id_categoria_promo = $categoria;
 
         if (isset($_FILES['img_promo']) && $_FILES['img_promo']['error'] === UPLOAD_ERR_OK) {
             $img_dir = $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/uploads/';

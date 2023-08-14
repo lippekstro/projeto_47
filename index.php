@@ -87,8 +87,9 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
             <div class="card-body">
                 <h5 class="card-title"><?php echo $promocao['nome_promo'] ?></h5>
                 <p class="card-text"><?php echo $promocao['descricao_promo'] ?></p>
+                <p class="card-text">Cupom: <?php echo $promocao['cupom'] ?></p>
                 <div class="d-flex justify-content-center">
-                    <a href="<?php echo $promocao['link_promo'] ?>" class="btn btn-primary">Acessar promoção</a>
+                    <a href="<?php echo $promocao['link_promo'] ?>" target="_blank" class="btn btn-primary">Acessar promoção</a>
                 </div>
             </div>
         </div>

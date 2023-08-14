@@ -22,7 +22,7 @@ class Promocao{
 
         try{
         $conexao = Conexao::conectar();
-        $statement = $conexao->prepare('SELECT nome_promo, descricao_promo, img_promo, link_promo FROM promocoes ORDER BY id_promo DESC LIMIT 3');
+        $statement = $conexao->prepare('SELECT nome_promo, descricao_promo, img_promo, link_promo,cupom FROM promocoes ORDER BY id_promo DESC LIMIT 3');
         $statement->execute();
         $listaDePromocoes = $statement->fetchAll();
         return $listaDePromocoes;

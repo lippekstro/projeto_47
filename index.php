@@ -22,7 +22,8 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
 <h1 style="color:black" class="text-center mt-3 mb-3">Titulo aqui</h1>
 
 <!--carrosel de eventos-->
-<div id="carouselExampleCaptions" class="carousel slide">
+<section class="d-flex justify-content-center">
+<div id="carouselExampleCaptions" class="carousel slide col-md-9" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -31,16 +32,23 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
     <div class="carousel-inner">
         <?php $i = 0;foreach ($listaEventos as $evento) :?>
             <?php if($i == 0){$ativar = ' active';}else{$ativar = '';} ?>
-        <a href="<?php echo $evento['link_evento'] ?>">
+        <a href="views/detalhesevento.php?id_evento=<?php echo $evento['id_evento'] ?>">
             <div class="carousel-item<?php echo $ativar ?>">            
                 <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($evento['img_evento']) ?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-warning fs-2"><?php echo $evento['titulo'] ?></h5>
-                    <p class="text-warning fs-3">Some representative placeholder content for the first slide.</p>
+                    <p class="text-warning fs-3">
+
+                    <?php if($evento['data_evento'] == '0000-00-00' or is_null($evento['data_evento']))
+                    {echo 'Sem data definida';}
+                    else
+                    {echo date('d-m-Y', strtotime($evento['data_evento']));} ?>
+                    
+                    </p>
                 </div>
             </div>
         </a>
-        <?php $i++;endforeach ?>
+        <?php $i++;endforeach; ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,6 +59,7 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+</section>
 
 <h2 style="color:black" class="text-center mt-3">Titulo aqui</h2>
 
@@ -87,7 +96,6 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
             </div>
         <?php endif; ?>
     <?php endif; ?>
-
 </section>
 
 <?php

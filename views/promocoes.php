@@ -1,8 +1,18 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php'; ?>
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_promo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocao.php';
+
+try {
+    $categoria = CategoriaPromo::listar();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
+?>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap'); */
 
     * {
         margin: 0;
@@ -237,7 +247,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php'; 
         }
 
         .conten {
-            margin: 5% -3% 0% 15%;
             flex-direction: column;
             align-items: center;
         }
@@ -354,52 +363,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php'; 
 
 
 <div class="contenBody">
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "projeto_47";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
-    $sql_categorias = "SELECT * FROM categoria_evento";
-    $result_categorias = $conn->query($sql_categorias);
-
-    if ($result_categorias->num_rows > 0) {
-        while ($row_categoria = $result_categorias->fetch_assoc()) {
-            $categoria_id = $row_categoria["id_categoria_evento"];
-            $categoria_nome = $row_categoria["nome_categoria_evento"];
-
-            echo '<h1>' . $categoria_nome . '</h1>';
-            echo '<div class="contenCard">';
-
-            $sql_eventos = "SELECT * FROM eventos WHERE id_categoria = $categoria_id";
-            $result_eventos = $conn->query($sql_eventos);
-
-            if ($result_eventos->num_rows > 0) {
-                while ($row_evento = $result_eventos->fetch_assoc()) {
-                    echo '<div class="conten">';
-                    echo '<div class="card" style="width: 14rem;">';
-                    echo '<img src="/projeto_47/img/restaurante-sal.jpg" class="card-img-top" alt="...">';
-                    echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . $row_evento['titulo'] . '</h5>';
-                    echo '<p class="card-text">' . $row_evento['descricao_evento'] . '</p>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-            }
-
-            echo '</div>';
-        }
-    }
-
-    $conn->close();
-    ?>
+    <?php foreach ($categoria as $c) : ?>
+        <h1><?= $c['nome_categoria_promo'] ?></h1>
+        <?php $conjunto = Promocao::listarPorCategoria($c['id_categoria_promo']); ?>
+        <?php foreach ($conjunto as $p) : ?>
+            <div class="contenCard">
+                <div class="conten">
+                    <div class="card" style="width: 14rem;">
+                        <img src="data:image/jpg;charset=utf9;base64,<?= base64_encode($p['img_promo']) ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $p['nome_promo'] ?></h5>
+                            <p class="card-text"><?= $p['descricao_promo'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
 </div>
 
 

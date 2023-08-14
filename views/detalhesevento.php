@@ -130,7 +130,7 @@ try {
         margin-top: 20px;
     }
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?key=<?= CHAVE_API_MAPS?>&callback=initMap"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
 <script>
@@ -202,7 +202,7 @@ try {
 
 <section class="">
     <div class="row event-card m-3">
-        <div class="col-4 m-3">
+        <div class="col-sm-12 col-lg-4">
             <img src="data:image;base64,<?= base64_encode($evento->img_evento) ?>" alt="" class="w-100">
         </div>
         <div class="col">
@@ -219,7 +219,7 @@ try {
     </div>
 </section>
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= CHAVE_API_MAPS?>&callback=initMap"></script>
 <script src="/projeto_47/js/geraMapa.js"></script>
 <script>
     initMap(<?= $evento->latitude ?>, <?= $evento->longitude ?>, "map-<?= $evento->id_evento ?>");

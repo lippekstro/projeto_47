@@ -1,7 +1,8 @@
+<?php 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
-
-class Evento {
+class Evento
+{
     public $id_evento;
     public $titulo;
     public $local_evento;
@@ -15,22 +16,18 @@ class Evento {
     public $latitude;
     public $curtidas;
 
-    public function carregaEventosPaginaInicio(){
-        try{
+    public function carregaEventosPaginaInicio()
+    {
+        try {
             $conexao = Conexao::conectar();
-            $statement = $conexao->prepare('SELECT titulo, descricao_evento, img_evento, link_evento FROM eventos ORDER BY ID_EVENTO DESC LIMIT 3');
+            $statement = $conexao->prepare('SELECT * FROM eventos ORDER BY ID_EVENTO DESC LIMIT 3');
             $statement->execute();
             $listaDeEventos = $statement->fetchAll();
             return $listaDeEventos;
-
-        }
-        catch(PDOException $erro){
+        } catch (PDOException $erro) {
             echo $erro->getMessage();
         }
     }
-}
-
-    
 
     public function __construct($id_evento = false)
     {
@@ -72,7 +69,8 @@ class Evento {
         return $lista;
     }
 
-    public function getCategoria(){
+    public function getCategoria()
+    {
         $query = "SELECT e.*, ce.nome_categoria_evento FROM eventos e JOIN categoria_evento ce ON e.id_categoria = ce.id_categoria_evento";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);

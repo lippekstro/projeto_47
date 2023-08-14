@@ -59,29 +59,31 @@ try {
 </style>
 
 <h1>Agenda</h1>
-<table>
-    <tr>
-        <th>Nome</th>
-        <th>Data</th>
-        <th>Local</th>
-        <th>Descrição</th>
-        <th>Preço</th>
-        <th>Link</th>
-        <th>Detalhes</th>
-        <!--<th>id_categoria</th>-->
-    </tr>
-    <?php foreach ($eventos as $e) : ?>
+<section class="table-responsive-xxl m-3">
+    <table>
         <tr>
-            <td><?= $e['titulo'] ?></td>
-            <td><?= $e['data_evento'] ?></td>
-            <td><?= $e['local_evento'] ?></td>
-            <td><?= $e['descricao_evento'] ?></td>
-            <td><?= $e['preco'] ?></td>
-            <td><?= $e['link_evento'] ?></td>
-            <td><a href="detalhesevento.php?id_evento=<?= $e["id_evento"] ?>">Ver Detalhes</a></td>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Local</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Link</th>
+            <th>Detalhes</th>
+            <!--<th>id_categoria</th>-->
         </tr>
-    <?php endforeach; ?>
-</table>
+        <?php foreach ($eventos as $e) : ?>
+            <tr>
+                <td><?= $e['titulo'] ?></td>
+                <td><?= date('d/m/Y', strtotime($e['data_evento'])) ?></td>
+                <td><a target="_blank" href="https://www.google.com.br/maps/place/<?= $e['latitude'] ?>,<?= $e['longitude'] ?>"><?= $e['local_evento'] ?></a></td>
+                <td><?= $e['descricao_evento'] ?></td>
+                <td>R$ <?= $e['preco'] ?></td>
+                <td><a target="_blank" href="<?= $e['link_evento'] ?>"><?= $e['link_evento'] ?></a></td>
+                <td><a href="detalhesevento.php?id_evento=<?= $e["id_evento"] ?>">Ver Detalhes</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</section>
 
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';

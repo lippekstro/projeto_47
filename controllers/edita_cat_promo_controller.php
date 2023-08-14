@@ -22,7 +22,7 @@ try {
 
     setcookie('msg', "A Categoria foi atualizada com sucesso!", time() + 3600, '/projeto_47/');
     setcookie('tipo', 'sucesso', time() + 3600, '/projeto_47/');
-    header("Location: /projeto_47/views/admin/listar_faqs.php");
+    header("Location: /projeto_47/views/admin/lista_categoria_promo.php");
     exit();
 } catch (PDOException $e) {
     echo $e->getMessage();

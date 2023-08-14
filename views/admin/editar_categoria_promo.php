@@ -26,7 +26,7 @@ try {
 <h1 class="text-center">Cadastro de Categoria</h1>
 <div>
     <form class="row m-3 align-items-center" action="/projeto_47/controllers/edita_cat_promo_controller.php" method="post">
-        <input type="hidden" name="id_categoria_evento" value="<?= $cat->id_categoria_promo ?>">
+        <input type="hidden" name="id_categoria_promo" value="<?= $cat->id_categoria_promo ?>">
         <div class="col-md-6">
             <label class="form-label" for="nome_categoria">Nome da Categoria:</label>
             <input class="form-control" type="text" id="nome_categoria" name="nome_categoria" value="<?= $cat->nome_categoria_promo ?>" required>

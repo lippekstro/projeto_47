@@ -29,9 +29,9 @@ CREATE TABLE categoria_promo (
 CREATE TABLE promocoes (
     id_promo INT PRIMARY KEY AUTO_INCREMENT, 
     nome_promo VARCHAR(255) NOT NULL,
-    --img_promo LONGBLOB,
-    --descricao_promo varchar(255),
-    --link-promo varchar(255),
+    img_promo LONGBLOB,
+    descricao_promo varchar(255),
+    link-promo varchar(255),
     id_categoria_promo INT NOT NULL,
     cupom VARCHAR(255),
     FOREIGN KEY (id_categoria_promo) REFERENCES categoria_promo(id_categoria_promo)

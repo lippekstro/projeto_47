@@ -61,7 +61,7 @@ class Evento
 
     public static function listar()
     {
-        $query = "SELECT e.*, ce.nome_categoria_evento FROM eventos e JOIN categoria_evento ce ON e.id_categoria = ce.id_categoria_evento ORDER BY data_evento DESC";
+        $query = "SELECT e.*, ce.nome_categoria_evento FROM eventos e JOIN categoria_evento ce ON e.id_categoria = ce.id_categoria_evento ORDER BY data_evento ASC";
         $conexao = Conexao::conectar();
         $stmt = $conexao->prepare($query);
         $stmt->execute();

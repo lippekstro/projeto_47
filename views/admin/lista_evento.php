@@ -32,7 +32,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 
             $sql = "SELECT eventos.*, categoria_evento.nome_categoria_evento 
                 FROM eventos 
-                INNER JOIN categoria_evento ON eventos.id_categoria = categoria_evento.id_categoria_evento";
+                INNER JOIN categoria_evento ON eventos.id_categoria = categoria_evento.id_categoria_evento ORDER BY eventos.data_evento ASC";
 
             $result = $conn->query($sql);
 
@@ -41,7 +41,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 echo "<tr>";
                 echo "<td>" . $row["titulo"] . "</td>";
                 echo "<td>" . $row["local_evento"] . "</td>";
-                echo "<td>" . $row["data_evento"] . "</td>";
+                echo "<td>" . date('d/m/Y', strtotime($row["data_evento"]))  . "</td>";
                 echo "<td>" . $row["descricao_evento"] . "</td>";
                 echo "<td>" . $row["preco"] . "</td>";
                 echo "<td>" . $row["link_evento"] . "</td>";

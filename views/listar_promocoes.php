@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/Promocoes.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
+/* require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php'; */
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 
 try {
@@ -38,7 +39,7 @@ try {
                     <td><?= $promocao['cupom'] ?></td>
                     <td>
                         <?php if ($promocao['img_promo']) : ?>
-                            <img src="/projeto_47/uploads/<?= $promocao['img_promo'] ?>" alt="Imagem Promoção" class="img-fluid">
+                            <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="Imagem Promoção" class="img-fluid">
                         <?php else : ?>
                             N/A
                         <?php endif; ?>

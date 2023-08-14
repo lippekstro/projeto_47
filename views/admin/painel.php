@@ -62,8 +62,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                             <p class="card-text">Gerencie as Promoções.</p>
                         </div>
                         <div class="d-flex justify-content-evenly align-items-center">
-                            <a href="#"><button type="button" class="btn btn-sm btn-outline-secondary m-3">Visualizar</button></a>
-                            <a href="adiciona-promocao.php"><button type="button" class="btn btn-sm btn-outline-secondary m-3">Adicionar</button></a>
+                            <a href="/projeto_47/views/listar_promocoes.php"><button type="button" class="btn btn-sm btn-outline-secondary m-3">Visualizar</button></a>
+                            <a href="/projeto_47/views/adicionar_promocoes.php"><button type="button" class="btn btn-sm btn-outline-secondary m-3">Adicionar</button></a>
                         </div>
                     </div>
                 </div>

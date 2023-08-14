@@ -15,7 +15,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 <th scope="col">Link</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Adicionar Promoção</th>
-            </tr> <!-- Fechando a linha do cabeçalho -->
+            </tr>
             <tr>
                 <?php
                 $servername = "localhost";
@@ -51,13 +51,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 } else {
                     echo "<tr><td colspan='7'>Nenhum evento encontrado.</td></tr>";
                 }
-
                 $conn->close();
                 ?>
             </tr>
         </thead>
     </table>
 </div>
+
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
 ?>

@@ -23,6 +23,24 @@ try {
 }
 ?>
 
+<section>
+    <?php if (isset($_COOKIE['msg'])) : ?>
+        <?php if ($_COOKIE['tipo'] === 'sucesso') : ?>
+            <div class="alert alert-success text-center m-3" role="alert">
+                <?= $_COOKIE['msg'] ?>
+            </div>
+        <?php elseif ($_COOKIE['tipo'] === 'perigo') : ?>
+            <div class="alert alert-danger text-center m-3" role="alert">
+                <?= $_COOKIE['msg'] ?>
+            </div>
+        <?php else : ?>
+            <div class="alert alert-info text-center m-3" role="alert">
+                <?= $_COOKIE['msg'] ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+</section>
+
 <h1 class="text-center">Lista de Eventos</h1>
 <div class="table-responsive-xxl m-3">
     <table class="table table-bordered">

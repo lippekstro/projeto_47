@@ -2,17 +2,17 @@
 session_start();
 
 if (isset($_COOKIE['msg'])) {
-    setcookie('msg', '', time() - 3600, '/projeto_47/');
-    setcookie('tipo', '', time() - 3600, '/projeto_47/');
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/faq.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/faq.php';
 
 if (!isset($_SESSION['admin'])) {
-    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/projeto_47/');
-    setcookie('tipo', 'perigo', time() + 3600, '/projeto_47/');
-    header('Location: /projeto_47/index.php');
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
     exit();
 }
 
@@ -56,8 +56,8 @@ try {
                 <tr>
                     <td class="col-2"><?= $f['faq_pergunta'] ?></td>
                     <td class="col-2"><?= $f['faq_resposta'] ?></td>
-                    <td class="col-2"><a href="/projeto_47/views/admin/editar_faq.php?id=<?= $f['id_faq'] ?>">Editar</a></td>
-                    <td class="col-2"><a href="/projeto_47/controllers/delete_faq_controller.php?id=<?= $f['id_faq'] ?>">Deletar</a></td>
+                    <td class="col-2"><a href="/ondeacontece/views/admin/editar_faq.php?id=<?= $f['id_faq'] ?>">Editar</a></td>
+                    <td class="col-2"><a href="/ondeacontece/controllers/delete_faq_controller.php?id=<?= $f['id_faq'] ?>">Deletar</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -65,5 +65,5 @@ try {
 </section>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

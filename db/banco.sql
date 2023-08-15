@@ -1,4 +1,4 @@
-CREATE DATABASE projeto_47;
+CREATE DATABASE ondeacontece;
 
 CREATE TABLE categoria_evento(
     id_categoria_evento INT PRIMARY KEY AUTO_INCREMENT, 

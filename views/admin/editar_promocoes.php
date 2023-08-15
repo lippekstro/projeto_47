@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocoes.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_promo.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocoes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/categoria_promo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
 
 try {
     if (isset($_GET['id_promo'])) {

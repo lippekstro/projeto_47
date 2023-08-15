@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_promo.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/categoria_promo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocao.php';
 
 try {
     $categoria = CategoriaPromo::listar();
@@ -361,7 +361,7 @@ try {
     }
 </style>
 
-
+<?php if (count($categoria) > 0) : ?>
 <div class="contenBody">
     <?php foreach ($categoria as $c) : ?>
         <h1><?= $c['nome_categoria_promo'] ?></h1>
@@ -381,8 +381,14 @@ try {
         <?php endforeach; ?>
     <?php endforeach; ?>
 </div>
-
+<?php else : ?>
+    <section class="m-3">
+        <div class="alert alert-info text-center m-3" role="alert">
+            Nenhuma Promoção Disponível
+        </div>
+    </section>
+<?php endif; ?>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

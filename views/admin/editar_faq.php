@@ -2,17 +2,17 @@
 session_start();
 
 if (isset($_COOKIE['msg'])) {
-    setcookie('msg', '', time() - 3600, '/projeto_47/');
-    setcookie('tipo', '', time() - 3600, '/projeto_47/');
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/faq.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/faq.php';
 
 if (!isset($_SESSION['admin'])) {
-    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/projeto_47/');
-    setcookie('tipo', 'perigo', time() + 3600, '/projeto_47/');
-    header('Location: /projeto_47/index.php');
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
     exit();
 }
 
@@ -42,7 +42,7 @@ try {
 
 <section class="d-flex align-items-center py-4">
     <div class="form-signin col-8 col-lg-4 m-auto">
-        <form action="/projeto_47/controllers/edit_faq_controller.php" method="POST">
+        <form action="/ondeacontece/controllers/edit_faq_controller.php" method="POST">
             <h1 class="h3 mb-3 fw-normal">Editar FAQ</h1>
 
             <input type="hidden" class="form-control" id="floatingInput" name="id" value="<?= $faq->id_faq ?>">
@@ -63,5 +63,5 @@ try {
 </section>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

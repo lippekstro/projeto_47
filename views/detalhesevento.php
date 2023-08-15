@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/evento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/evento.php';
 
 $id_evento = $_GET['id_evento'];
 
@@ -220,11 +220,11 @@ try {
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<?= CHAVE_API_MAPS?>&callback=initMap"></script>
-<script src="/projeto_47/js/geraMapa.js"></script>
+<script src="/ondeacontece/js/geraMapa.js"></script>
 <script>
     initMap(<?= $evento->latitude ?>, <?= $evento->longitude ?>, "map-<?= $evento->id_evento ?>");
 </script>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

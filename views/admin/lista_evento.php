@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
 ?>
 
 <h1 class="text-center">Lista de Eventos</h1>
@@ -47,7 +47,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
                 echo "<td>" . $row["link_evento"] . "</td>";
                 echo "<td>" . $row["nome_categoria_evento"] . "</td>";
                 echo "<td><a href='editar_evento.php?id=" . $row["id_evento"] . "'>Editar</a></td>";
-                echo "<td><a href='/projeto_47/controllers/excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
+                echo "<td><a href='/ondeacontece/controllers/excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
                 echo "</tr>";
             }
         }
@@ -58,5 +58,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 </div>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

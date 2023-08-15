@@ -2,17 +2,17 @@
 session_start();
 
 if (isset($_COOKIE['msg'])) {
-    setcookie('msg', '', time() - 3600, '/projeto_47/');
-    setcookie('tipo', '', time() - 3600, '/projeto_47/');
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_promo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/categoria_promo.php';
 
 if (!isset($_SESSION['admin'])) {
-    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/projeto_47/');
-    setcookie('tipo', 'perigo', time() + 3600, '/projeto_47/');
-    header('Location: /projeto_47/index.php');
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
     exit();
 }
 
@@ -25,7 +25,7 @@ try {
 
 <h1 class="text-center">Cadastro de Categoria</h1>
 <div>
-    <form class="row m-3 align-items-center" action="/projeto_47/controllers/edita_cat_promo_controller.php" method="post">
+    <form class="row m-3 align-items-center" action="/ondeacontece/controllers/edita_cat_promo_controller.php" method="post">
         <input type="hidden" name="id_categoria_promo" value="<?= $cat->id_categoria_promo ?>">
         <div class="col-md-6">
             <label class="form-label" for="nome_categoria">Nome da Categoria:</label>
@@ -38,5 +38,5 @@ try {
 </div>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

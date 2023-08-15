@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/evento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/evento.php';
 
 try {
     $eventos = Evento::listar();
@@ -58,6 +58,7 @@ try {
     }
 </style>
 
+<?php if (count($eventos) > 0) : ?>
 <h1>Agenda</h1>
 <section class="table-responsive-xxl m-3">
     <table>
@@ -84,7 +85,14 @@ try {
         <?php endforeach; ?>
     </table>
 </section>
+<?php else : ?>
+    <section class="m-3">
+        <div class="alert alert-info text-center m-3" role="alert">
+            Nenhum Evento Disponível
+        </div>
+    </section>
+<?php endif; ?>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

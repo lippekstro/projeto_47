@@ -1,5 +1,5 @@
 <?php 
-$_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
+$_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
 
 class Promocao{
 

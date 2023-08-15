@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bind_param("ssssdssddi", $local_evento, $titulo, $data_evento, $descricao_evento, $preco, $link_evento, $id_categoria, $latitude, $longitude, $id_evento);
 
     if ($stmt->execute()) {
-        header("Location: /projeto_47/views/admin/lista_evento.php");
+        header("Location: /ondeacontece/views/admin/lista_evento.php");
     } else {
         echo "Erro ao atualizar o evento: " . $stmt->error;
     }

@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 // Redirecionar para a página principal (home)
-header('Location: /projeto_47/index.php');
+header('Location: /ondeacontece/index.php');
 exit();
 ?>

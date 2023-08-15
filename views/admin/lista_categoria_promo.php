@@ -2,12 +2,12 @@
 session_start();
 
 if (isset($_COOKIE['msg'])) {
-    setcookie('msg', '', time() - 3600, '/projeto_47/');
-    setcookie('tipo', '', time() - 3600, '/projeto_47/');
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/categoria_promo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/categoria_promo.php';
 
 try {
     $categorias = CategoriaPromo::listar();
@@ -46,8 +46,8 @@ try {
             <?php foreach ($categorias as $c) : ?>
                 <tr>
                     <td><?= $c['nome_categoria_promo'] ?></td>
-                    <td><a href="/projeto_47/views/admin/editar_categoria_promo.php?id=<?= $c['id_categoria_promo'] ?>">Editar</a></td>
-                    <td><a href="/projeto_47/controllers/delete_cat_promo_controller.php?id=<?= $c['id_categoria_promo'] ?>">Excluir</a></td>
+                    <td><a href="/ondeacontece/views/admin/editar_categoria_promo.php?id=<?= $c['id_categoria_promo'] ?>">Editar</a></td>
+                    <td><a href="/ondeacontece/controllers/delete_cat_promo_controller.php?id=<?= $c['id_categoria_promo'] ?>">Excluir</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -55,5 +55,5 @@ try {
 </div>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

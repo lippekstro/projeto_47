@@ -1,14 +1,15 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
 
 
-class Admin {
+class Admin
+{
     private $id_admin;
     private $nome_admin;
     private $email_admin;
     private $senha_admin;
-   
-    
+
+
 
     public function __construct($id_admin = false)
     {
@@ -30,9 +31,7 @@ class Admin {
         $this->id_admin = $usuario['id_admin'];
         $this->nome_admin = $usuario['nome_admin'];
         $this->email_admin = $usuario['email_admin'];
-        $this->senha_admin= $usuario['senha_admin'];
-       
-       
+        $this->senha_admin = $usuario['senha_admin'];
     }
 
     public function criar($nome_admin, $email_admin, $senha_admin)
@@ -78,27 +77,32 @@ class Admin {
         $stmt->execute();
     }
 
-    public static function logar ($email_admin, $senha_admin) 
+    public static function logar($email_admin, $senha_admin)
     {
         $query = "SELECT * FROM admins WHERE email_admin =:email_admin LIMIT 1";
         $conexao = Conexao::conectar();
-        $stmt =$conexao->prepare($query);
-        $stmt->bindValue(':email_admin',$email_admin);
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':email_admin', $email_admin);
         $stmt->execute();
         $registro = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if(count($registro)>0 && password_verify($senha_admin, $registro['senha_admin'])){
-        session_destroy();
-        session_start();
-        session_regenerate_id(true);
-        $_SESSION['admin']['id'] = $registro ['id_admin'];
-        $_SESSION['admin']['nome'] = $registro ['nome_admin'];
-        $_SESSION['admin']['email'] = $registro ['email_admin'];
-        $_SESSION['admin']['inicio'] = time ();
-        $_SESSION['admin']['expira'] = 900;
 
-        header('Location:/projeto_47/views/admin/painel.php');
-        exit();
+        if (count($registro) > 0 && password_verify($senha_admin, $registro['senha_admin'])) {
+            session_destroy();
+            session_start();
+            session_regenerate_id(true);
+            $_SESSION['admin']['id'] = $registro['id_admin'];
+            $_SESSION['admin']['nome'] = $registro['nome_admin'];
+            $_SESSION['admin']['email'] = $registro['email_admin'];
+            $_SESSION['admin']['inicio'] = time();
+            $_SESSION['admin']['expira'] = 900;
+
+            header('Location:/ondeacontece/views/admin/painel.php');
+            exit();
+        } else {
+            setcookie('msg', 'Email/Senha incorretos', time() + 3600, '/ondeacontece/');
+            setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+            header('Location:/ondeacontece/views/admin/login.php');
+            exit();
         }
-} 
+    }
 }

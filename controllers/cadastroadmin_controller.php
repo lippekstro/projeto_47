@@ -1,7 +1,7 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/admins.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/configs/utils.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/admins.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/configs/utils.php';
 
 
 session_start();
@@ -13,7 +13,7 @@ try {
      } else {
         setcookie ('msg', 'Email Inválido.', time() +3600, );
         setcookie('tipo', 'perigo',time () +3600);
-        header("Location:/projeto_47/views/admin/cadastroadmin.php");
+        header("Location:/ondeacontece/views/admin/cadastroadmin.php");
         exit(); 
     }
 
@@ -23,7 +23,7 @@ try {
     $admin = new Admin();
     $admin->criar($nome, $email,$senha);
 
-    header("Location:/projeto_47/views/admin/login.php");
+    header("Location:/ondeacontece/views/admin/login.php");
     exit();
 } catch (PDOException $e) {
     $sqlStateCode =$e->getCode();
@@ -32,7 +32,7 @@ try {
     if ($sqlStateCode ==='2300' && strpos($errorMessage, 'Duplicate entry')!==false) {
         setcookie('msg', "O email já foi cadastrado.", time() +3600, );
         setcookie('tipo', 'info', time () +3600);
-        header('Location:/projeto_47/views/admin/cadastroadmin.php'); }
+        header('Location:/ondeacontece/views/admin/cadastroadmin.php'); }
         else { 
             echo "Erro no banco de dados:" . $errorMessage; }
         exit();

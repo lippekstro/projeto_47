@@ -1,9 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
 ?>
 
 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-    <form action="/projeto_47/controllers/cadastroadmin_controller.php" method="POST" style="width: 23rem;">
+    <form action="/ondeacontece/controllers/cadastroadmin_controller.php" method="POST" style="width: 23rem;">
         <h2 class="fw-bold mb-5 text-center">Cadastre-se</h2>
         <div class="form-outline mb-4">
             <input type="text" id="form3Example1" name=nome class="form-control" />
@@ -26,5 +26,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
 </div>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

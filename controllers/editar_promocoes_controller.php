@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocoes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocoes.php';
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +22,7 @@ try {
         $promocao->id_categoria_promo = $categoria;
 
         if (isset($_FILES['img_promo']) && $_FILES['img_promo']['error'] === UPLOAD_ERR_OK) {
-            $img_dir = $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/uploads/';
+            $img_dir = $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/uploads/';
             $img_name = $_FILES['img_promo']['name'];
             $img_tmp_name = $_FILES['img_promo']['tmp_name'];
             $img_path = $img_dir . $img_name;
@@ -35,7 +35,7 @@ try {
         }
 
         $promocao->editar();
-        header("Location: /projeto_47/views/admin/listar_promocoes.php");
+        header("Location: /ondeacontece/views/admin/listar_promocoes.php");
         exit();
     } else {
         echo "Requisição inválida.";

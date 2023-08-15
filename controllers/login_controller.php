@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/admins.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/admins.php';
 
 session_start();
 

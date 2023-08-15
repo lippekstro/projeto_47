@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/Promocoes.php';
-/* require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php'; */
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/Promocoes.php';
+/* require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php'; */
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
 
 try {
     $promocoes = Promocoes::listar();
@@ -44,12 +44,12 @@ try {
                             N/A
                         <?php endif; ?>
                     </td>
-                    <td><a href="/projeto_47/views/admin/editar_promocoes.php?id_promo=<?= $promocao['id_promo'] ?>">Editar</a></td>
-                    <td><a href="/projeto_47/controllers/deletar_promocoes_controller.php?id_promo=<?= $promocao['id_promo'] ?>">Deletar</a></td>
+                    <td><a href="/ondeacontece/views/admin/editar_promocoes.php?id_promo=<?= $promocao['id_promo'] ?>">Editar</a></td>
+                    <td><a href="/ondeacontece/controllers/deletar_promocoes_controller.php?id_promo=<?= $promocao['id_promo'] ?>">Deletar</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php'; ?>

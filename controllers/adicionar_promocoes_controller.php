@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/db/conexao.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/Promocoes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/Promocoes.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_promo = $_POST['nome_promo'];
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nova_promocao->criar();
 
-    header('Location: /projeto_47/views/admin/listar_promocoes.php');
+    header('Location: /ondeacontece/views/admin/listar_promocoes.php');
     exit();
 }
 ?>

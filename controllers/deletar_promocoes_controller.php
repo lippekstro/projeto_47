@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/Promocoes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/Promocoes.php';
 
 try {
     if (isset($_GET['id_promo'])) {
@@ -9,7 +9,7 @@ try {
 
         $promocao->deletar();
 
-        header("Location: /projeto_47/views/admin/listar_promocoes.php");
+        header("Location: /ondeacontece/views/admin/listar_promocoes.php");
         exit();
     }
 } catch (PDOException $e) {

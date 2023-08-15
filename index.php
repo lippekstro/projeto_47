@@ -2,13 +2,13 @@
 session_start();
 
 if (isset($_COOKIE['msg'])) {
-    setcookie('msg', '', time() - 3600, '/projeto_47/');
-    setcookie('tipo', '', time() - 3600, '/projeto_47/');
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/cabecalho.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/evento.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/models/promocao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/evento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocao.php';
 ?>
 
 <?php
@@ -36,6 +36,7 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
     <?php endif; ?>
 </section>
 
+<?php if (count($listaEventos) > 0) : ?>
 <h1 style="color:black" class="text-center mt-3 mb-3">Próximos Eventos</h1>
 
 <!--carrosel de eventos-->
@@ -76,26 +77,41 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
         </button>
     </div>
 </section>
+<?php else : ?>
+    <section class="m-3">
+        <div class="alert alert-info text-center m-3" role="alert">
+            Nenhum Evento Disponível
+        </div>
+    </section>
+<?php endif; ?>
 
-<h2 style="color:black" class="text-center mt-3">Promoções em Alta</h2>
+<?php if (count($listaDePromocoes) > 0) : ?>
+    <h2 style="color:black" class="text-center mt-3">Promoções em Alta</h2>
 
-<!--cards de promoções-->
-<section id="cardsPromocoesRecentes" class="mt-4 mb-5 d-flex justify-content-center justify-content-lg-evenly flex-wrap">
-    <?php foreach ($listaDePromocoes as $promocao) : ?>
-        <div class="card mb-4" style="width: 18rem;">
-            <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="..." style="max-height:10.078rem">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo $promocao['nome_promo'] ?></h5>
-                <p class="card-text"><?php echo $promocao['descricao_promo'] ?></p>
-                <p class="card-text">Cupom: <?php echo $promocao['cupom'] ?></p>
-                <div class="d-flex justify-content-center">
-                    <a href="<?php echo $promocao['link_promo'] ?>" target="_blank" class="btn btn-primary">Acessar promoção</a>
+    <!--cards de promoções-->
+    <section id="cardsPromocoesRecentes" class="mt-4 mb-5 d-flex justify-content-center justify-content-lg-evenly flex-wrap">
+        <?php foreach ($listaDePromocoes as $promocao) : ?>
+            <div class="card mb-4" style="width: 18rem;">
+                <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($promocao['img_promo']) ?>" alt="..." style="max-height:10.078rem">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $promocao['nome_promo'] ?></h5>
+                    <p class="card-text"><?php echo $promocao['descricao_promo'] ?></p>
+                    <p class="card-text">Cupom: <?php echo $promocao['cupom'] ?></p>
+                    <div class="d-flex justify-content-center">
+                        <a href="<?php echo $promocao['link_promo'] ?>" target="_blank" class="btn btn-primary">Acessar promoção</a>
+                    </div>
                 </div>
             </div>
+        <?php endforeach ?>
+    </section>
+<?php else : ?>
+    <section class="m-3">
+        <div class="alert alert-info text-center m-3" role="alert">
+            Nenhuma Promoção Disponível
         </div>
-    <?php endforeach ?>
-</section>
+    </section>
+<?php endif; ?>
 
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projeto_47/templates/rodape.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/rodape.php';
 ?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
 
 class Evento
@@ -16,6 +16,14 @@ class Evento
     public $latitude;
     public $curtidas;
 
+    public function __construct($id_evento = false)
+    {
+        if ($id_evento) {
+            $this->id_evento = $id_evento;
+            $this->carregar();
+        }
+    }
+
     public function carregaEventosPaginaInicio()
     {
         try {
@@ -26,14 +34,6 @@ class Evento
             return $listaDeEventos;
         } catch (PDOException $erro) {
             echo $erro->getMessage();
-        }
-    }
-
-    public function __construct($id_evento = false)
-    {
-        if ($id_evento) {
-            $this->id_evento = $id_evento;
-            $this->carregar();
         }
     }
 
@@ -77,5 +77,53 @@ class Evento
         $stmt->execute();
         $lista = $stmt->fetch();
         return $lista['nome_categoria_evento'];
+    }
+
+    public function criar()
+    {
+        $query = "INSERT INTO eventos (titulo, local_evento, data_evento, descricao_evento, preco, link_evento, img_evento, longitude, latitude, id_categoria) VALUES (:nome, :local_evento, :data_evento, :descricao, :preco, :link, :imagem, :long, :lat, :categoria)";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':nome', $this->titulo);
+        $stmt->bindValue(':local_evento', $this->local_evento);
+        $stmt->bindValue(':data_evento', $this->data_evento);
+        $stmt->bindValue(':descricao', $this->descricao_evento);
+        $stmt->bindValue(':preco', $this->preco);
+        $stmt->bindValue(':link', $this->link_evento);
+        $stmt->bindValue(':imagem', $this->img_evento);
+        $stmt->bindValue(':long', $this->longitude);
+        $stmt->bindValue(':lat', $this->latitude);
+        $stmt->bindValue(':categoria', $this->id_categoria);
+
+        $stmt->execute();
+        $this->id_evento = $conexao->lastInsertId();
+        return $this->id_evento;
+    }
+
+    public function editar()
+    {
+        $query = "UPDATE eventos SET titulo = :titulo, local_evento = :local_evento, data_evento = :data_evento, descricao_evento = :descricao, preco = :preco, link_evento = :link, longitude = :long, latitude = :lat, id_categoria = :categoria WHERE id_evento = :id";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':titulo', $this->titulo);
+        $stmt->bindValue(':local_evento', $this->local_evento);
+        $stmt->bindValue(':data_evento', $this->data_evento);
+        $stmt->bindValue(':descricao', $this->descricao_evento);
+        $stmt->bindValue(':preco', $this->preco);
+        $stmt->bindValue(':link', $this->link_evento);
+        $stmt->bindValue(':categoria', $this->id_categoria);
+        $stmt->bindValue(':long', $this->longitude);
+        $stmt->bindValue(':lat', $this->latitude);
+        $stmt->bindValue(':id', $this->id_evento);
+        $stmt->execute();
+    }
+
+    public function deletar()
+    {
+        $query = "DELETE FROM eventos WHERE id_evento = :id";
+        $conexao = Conexao::conectar();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':id', $this->id_evento);
+        $stmt->execute();
     }
 }

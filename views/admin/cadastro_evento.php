@@ -76,9 +76,9 @@ try {
         <div class="col-md-4">
             <label class="form-label" for="categoriaEvento">Categoria do Evento:</label>
             <select class="form-select" id="categoriaEvento" name="categoriaEvento" required>
-                <?php foreach($categorias as $c) : ?>
+                <?php foreach ($categorias as $c) : ?>
                     <option value="<?= $c['id_categoria_evento'] ?>"><?= $c['nome_categoria_evento'] ?></option>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </select>
         </div>
 

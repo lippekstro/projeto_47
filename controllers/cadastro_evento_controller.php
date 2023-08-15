@@ -1,5 +1,16 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+session_start();
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ondeacontece/models/evento.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ondeacontece/configs/utils.php";
+
+if (!isset($_SESSION['admin'])) {
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
+    exit();
+}
+
+try {
     
     function limparDados($dados) {
         return htmlspecialchars(trim($dados));
@@ -14,77 +25,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $precoEvento = isset($_POST["precoEvento"]) ? floatval($_POST["precoEvento"]) : null;
     $linkEvento = isset($_POST["linkEvento"]) ? limparDados($_POST["linkEvento"]) : null;
     $categoriaEvento = limparDados($_POST["categoriaEvento"]);
+    if (!empty($_FILES['imagemEvento']['tmp_name'])) {
+        $imagem = file_get_contents($_FILES['imagemEvento']['tmp_name']);
+    }
+
+    $evento = new Evento();
+    $evento->titulo = $titulo;
+    $evento->latitude = $latitude;
+    $evento->longitude = $longitude;
+    $evento->data_evento = $dataEvento;
+    $evento->local_evento = $localEvento;
+    $evento->descricao_evento = $descricaoEvento;
+    $evento->preco = $precoEvento;
+    $evento->link_evento = $linkEvento;
+    $evento->id_categoria = $categoriaEvento;
+    $evento->img_evento = $imagem;
+
+    $evento->criar();
+
+    setcookie('msg', "O Evento foi adicionado com sucesso!", time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'sucesso', time() + 3600, '/ondeacontece/');
+    header("Location: /ondeacontece/views/admin/lista_evento.php");
+    exit();
     
-   
-    if (empty($titulo) || empty($latitude) || empty($longitude) || empty($dataEvento) || empty($localEvento) || empty($descricaoEvento) || empty($categoriaEvento)) {
-        echo "Erro: Todos os campos obrigatórios devem ser preenchidos.";
-        exit;
-    }
-
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "projeto_47";
-
-    $conexao = new mysqli($hostname, $username, $password, $database);
-
-    if ($conexao->connect_error) {
-        die("Erro na conexão: " . $conexao->connect_error);
-    }
-
-    $consulta_categoria = "SELECT id_categoria_evento FROM categoria_evento WHERE id_categoria_evento = ?";
-    $stmt_categoria = $conexao->prepare($consulta_categoria);
-    $stmt_categoria->bind_param("i", $categoriaEvento);
-    $stmt_categoria->execute();
-    $result_categoria = $stmt_categoria->get_result();
-
-    if ($result_categoria->num_rows > 0) {
-        
-        /* $targetDirectory = "path/to/your/image/directory/";
-        if (!is_dir($targetDirectory)) {
-            mkdir($targetDirectory, 0755, true); 
-        } */
-
-        $uploadedFileName = file_get_contents($_FILES["imagemEvento"]["tmp_name"]);
-        /* $uploadedFileName = preg_replace("/[^a-zA-Z0-9._-]/", "", $uploadedFileName); 
-        $targetFilePath = $targetDirectory . $uploadedFileName; */
-
-        if ($_FILES["imagemEvento"]["error"] !== UPLOAD_ERR_OK) {
-            echo "Erro no upload do arquivo: " . $_FILES["imagemEvento"]["error"];
-            exit;
-        }
-
-        /* if (move_uploaded_file($_FILES["imagemEvento"]["tmp_name"], $targetFilePath)) {
-           
-            $imagemEvento = $targetFilePath;
-        } else {
-           
-            $imagemEvento = null;
-        } */
-
-        $sql = "INSERT INTO eventos (titulo, latitude, longitude, local_evento, data_evento, descricao_evento, preco, link_evento, img_evento, id_categoria) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $conexao->prepare($sql);
-
-        if (!$stmt) {
-            echo "Erro na preparação da instrução SQL: " . $conexao->error;
-            exit;
-        }
-
-        $stmt->bind_param("ssssssdssi", $titulo, $latitude, $longitude, $localEvento, $dataEvento, $descricaoEvento, $precoEvento, $linkEvento, $uploadedFileName, $categoriaEvento);
-
-        if ($stmt->execute()) {
-            header("Location: /ondeacontece/views/admin/lista_evento.php");
-        } else {
-            echo "Erro ao cadastrar o evento: " . $stmt->error;
-        }
-
-        $stmt->close();
-    } else {
-        echo "Erro: A categoria desejada não existe na tabela categoria_evento.";
-    }
-
-    $stmt_categoria->close();
-    $conexao->close();
+} catch (PDOException $e) {
+    echo $e->getMessage();
 }
-?>

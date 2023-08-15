@@ -1,60 +1,60 @@
 <?php
 session_start();
+
+if (isset($_COOKIE['msg'])) {
+    setcookie('msg', '', time() - 3600, '/ondeacontece/');
+    setcookie('tipo', '', time() - 3600, '/ondeacontece/');
+}
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/evento.php';
+
+if (!isset($_SESSION['admin'])) {
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
+    exit();
+}
+
+try {
+    $eventos = Evento::listar();
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 ?>
 
 <h1 class="text-center">Lista de Eventos</h1>
 <div class="table-responsive-xxl m-3">
     <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th scope="col">Nome Evento</th>
-            <th scope="col">Local</th>
-            <th scope="col">Data</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Link</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Excluir</th>
-        </tr>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "projeto_47";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Falha na conexão: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT eventos.*, categoria_evento.nome_categoria_evento 
-                FROM eventos 
-                INNER JOIN categoria_evento ON eventos.id_categoria = categoria_evento.id_categoria_evento ORDER BY eventos.data_evento ASC";
-
-            $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["titulo"] . "</td>";
-                echo "<td>" . $row["local_evento"] . "</td>";
-                echo "<td>" . date('d/m/Y', strtotime($row["data_evento"]))  . "</td>";
-                echo "<td>" . $row["descricao_evento"] . "</td>";
-                echo "<td>" . $row["preco"] . "</td>";
-                echo "<td>" . $row["link_evento"] . "</td>";
-                echo "<td>" . $row["nome_categoria_evento"] . "</td>";
-                echo "<td><a href='editar_evento.php?id=" . $row["id_evento"] . "'>Editar</a></td>";
-                echo "<td><a href='/ondeacontece/controllers/excluir_evento_controller.php?id=" . $row["id_evento"] . "'>Excluir</a></td>";
-                echo "</tr>";
-            }
-        }
-            $conn->close();
-            ?>
+        <thead>
+            <tr>
+                <th scope="col">Nome Evento</th>
+                <th scope="col">Local</th>
+                <th scope="col">Data</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Link</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($eventos as $f) : ?>
+                <tr>
+                    <td class="col-2"><?= $f['titulo'] ?></td>
+                    <td class="col-2"><?= $f['local_evento'] ?></td>
+                    <td class="col-2"><?= date('d/m/Y', strtotime($f['data_evento'])) ?></td>
+                    <td class="col-2"><?= $f['descricao_evento'] ?></td>
+                    <td class="col-2"><?= $f['preco'] ?></td>
+                    <td class="col-2"><?= $f['link_evento'] ?></td>
+                    <td class="col-2"><?= $f['nome_categoria_evento'] ?></td>
+                    <td class="col-2"><a href="/ondeacontece/views/admin/editar_evento.php?id=<?= $f['id_evento'] ?>">Editar</a></td>
+                    <td class="col-2"><a href="/ondeacontece/controllers/excluir_evento_controller.php?id=<?= $f['id_evento'] ?>">Deletar</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
-    </thead>
 </div>
 
 <?php

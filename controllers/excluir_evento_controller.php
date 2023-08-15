@@ -1,33 +1,25 @@
 <?php
+session_start();
+require_once $_SERVER["DOCUMENT_ROOT"] . '/ondeacontece/models/evento.php';
 
-$dsn = 'mysql:host=localhost;dbname=projeto_47;charset=utf8';
-$username = 'root';
-$password = '';
-
-try {
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Erro na conexão com o banco de dados: ' . $e->getMessage();
+if (!isset($_SESSION['admin'])) {
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
     exit();
 }
 
+try {
+    $id = $_GET['id'];
 
-if (isset($_GET['id'])) {
-    $idEvento = $_GET['id'];
+    $evento = new Evento($id);
 
-    $sql = "DELETE FROM eventos WHERE id_evento = :id_evento";
+    $evento->deletar();
 
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id_evento', $idEvento, PDO::PARAM_INT);
-        $stmt->execute();
-
-        header("Location: /ondeacontece/views/admin/lista_evento.php");
-    } catch (PDOException $e) {
-        echo 'Erro ao excluir o evento: ' . $e->getMessage();
-    }
-} else {
-    echo 'ID do evento não foi fornecido.';
+    setcookie('msg', "O Evento foi deletada com sucesso!", time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'sucesso', time() + 3600, '/ondeacontece/');
+    header("Location: /ondeacontece/views/admin/lista_evento.php");
+    exit();
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
-?>

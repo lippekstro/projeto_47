@@ -1,53 +1,50 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "projeto_47";
+session_start();
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ondeacontece/models/evento.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ondeacontece/configs/utils.php";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+if (!isset($_SESSION['admin'])) {
+    setcookie('msg', 'Você não tem permissão para acessar este conteúdo', time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'perigo', time() + 3600, '/ondeacontece/');
+    header('Location: /ondeacontece/index.php');
+    exit();
+}
 
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
+try {
+    
     function limparDados($dados) {
         return htmlspecialchars(trim($dados));
     }
 
-    $id_evento = limparDados($_POST["id_evento"]);
+    $id = $_POST['id_evento'];
     $titulo = limparDados($_POST["tituloEvento"]);
-    $latitude = floatval($_POST["latitudeEvento"]);
-    $longitude = floatval($_POST["longitudeEvento"]);
-    $local_evento = limparDados($_POST["localEvento"]);
-    $data_evento = limparDados($_POST["data_evento"]);
-    $descricao_evento = limparDados($_POST["descricao_evento"]);
-    $preco = isset($_POST["preco"]) ? floatval($_POST["preco"]) : null;
-    $link_evento = isset($_POST["link_evento"]) ? limparDados($_POST["link_evento"]) : null;
-    $id_categoria = limparDados($_POST["id_categoria"]);
+    $latitude = limparDados($_POST["latitudeEvento"]);
+    $longitude = limparDados($_POST["longitudeEvento"]);
+    $dataEvento = limparDados($_POST["data_evento"]);
+    $localEvento = limparDados($_POST["localEvento"]);
+    $descricaoEvento = limparDados($_POST["descricao_evento"]);
+    $precoEvento = $_POST["preco"];
+    $linkEvento = $_POST["link_evento"];
+    $categoriaEvento = limparDados($_POST["id_categoria"]);
 
-    if (empty($local_evento) || empty($titulo) || empty($data_evento) || empty($id_categoria)) {
-        echo "Erro: Todos os campos obrigatórios devem ser preenchidos.";
-        exit;
-    }
+    $evento = new Evento($id);
+    $evento->titulo = $titulo;
+    $evento->latitude = $latitude;
+    $evento->longitude = $longitude;
+    $evento->data_evento = $dataEvento;
+    $evento->local_evento = $localEvento;
+    $evento->descricao_evento = $descricaoEvento;
+    $evento->preco = $precoEvento;
+    $evento->link_evento = $linkEvento;
+    $evento->id_categoria = $categoriaEvento;
 
-    $sql = "UPDATE eventos SET local_evento = ?, titulo = ?, data_evento = ?, descricao_evento = ?, preco = ?, link_evento = ?, id_categoria = ?, latitude = ?, longitude = ? WHERE id_evento = ?";
-    $stmt = $conn->prepare($sql);
+    $evento->editar();
 
-    if (!$stmt) {
-        echo "Erro na preparação da instrução SQL: " . $conn->error;
-        exit;
-    }
-
-    $stmt->bind_param("ssssdssddi", $local_evento, $titulo, $data_evento, $descricao_evento, $preco, $link_evento, $id_categoria, $latitude, $longitude, $id_evento);
-
-    if ($stmt->execute()) {
-        header("Location: /ondeacontece/views/admin/lista_evento.php");
-    } else {
-        echo "Erro ao atualizar o evento: " . $stmt->error;
-    }
-
-    $stmt->close();
-    $conn->close();
+    setcookie('msg', "O Evento foi editado com sucesso!", time() + 3600, '/ondeacontece/');
+    setcookie('tipo', 'sucesso', time() + 3600, '/ondeacontece/');
+    header("Location: /ondeacontece/views/admin/lista_evento.php");
+    exit();
+    
+} catch (PDOException $e) {
+    echo $e->getMessage();
 }
-?>

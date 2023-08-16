@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Onde Acontece</title>
+    <link rel="shortcut icon" href="/ondeacontece/img/ondeacontece (1).png" type="image/x-icon">
 
     <!-- css bootstrap -->
     <link rel="stylesheet" href="/ondeacontece/css/bootstrap.css">

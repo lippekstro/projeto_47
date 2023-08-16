@@ -18,7 +18,7 @@ try {
 
     setcookie('msg', "A Categoria foi deletada com sucesso!", time() + 3600, '/ondeacontece/');
     setcookie('tipo', 'sucesso', time() + 3600, '/ondeacontece/');
-    header("Location: /ondeacontece/views/admin/listar_categoria_promo.php");
+    header("Location: /ondeacontece/views/admin/lista_categoria_promo.php");
     exit();
 } catch (Exception $e) {
     echo $e->getMessage();

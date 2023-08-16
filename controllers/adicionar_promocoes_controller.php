@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/Promocoes.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocoes.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_promo = $_POST['nome_promo'];

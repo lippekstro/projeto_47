@@ -22,7 +22,7 @@ try {
     <h1 class="text-center">Editar Promoção</h1>
     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-        <form class="row gy-2 gx-3 align-items-center" action="\projeto_47\controllers\editar_promocoes_controller.php" method="post" enctype="multipart/form-data">
+        <form class="row gy-2 gx-3 align-items-center" action="\ondeacontece\controllers\editar_promocoes_controller.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id_promo" value="<?= $promocao->id_promo ?>">
 
             <div class="col-md-6">

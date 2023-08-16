@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/Promocoes.php';
-/* require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/db/conexao.php'; */
+require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/models/promocoes.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/ondeacontece/templates/cabecalho.php';
 
 try {

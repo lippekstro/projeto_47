@@ -57,7 +57,7 @@ $listaDePromocoes = $promocoes->carregaPromocaoRecentePaginaInicio();
                 } ?>
                 <a href="<?php echo $evento['link_evento'] ?>">
                     <div class="carousel-item<?php echo $ativar ?>">
-                        <img src="data:image/jpg;charset=utf9;base64,<?php echo base64_encode($evento['img_evento']) ?>" class="d-block w-100" alt="...">
+                        <img src="data:image;charset=utf9;base64,<?php echo base64_encode($evento['img_evento']) ?>" class="d-block w-100" alt="..." id="img_carrossel">
                         <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50">
                             <h5 class="text-warning fs-2"><?php echo $evento['titulo'] ?></h5>
                             <p class="text-warning fs-3"><?php echo date('d/m/Y', strtotime($evento['data_evento'])) ?></p>

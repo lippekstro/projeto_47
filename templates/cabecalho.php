@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onde Acontece</title>
-    <link rel="shortcut icon" href="/ondeacontece/img/ondeacontece (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="/ondeacontece/img/ondeacontece_2.png" type="image/x-icon">
 
     <!-- css bootstrap -->
     <link rel="stylesheet" href="/ondeacontece/css/bootstrap.css">
@@ -20,13 +20,13 @@
         <nav class="navbar navbar-expand-lg" style="background-color: var(--cor3);">
             <div class="container-fluid">
                 <div class="col-5 col-lg-2">
-                    <img src="/ondeacontece/img/ondeacontece (1).png" alt="" class="w-100">
+                    <img src="/ondeacontece/img/ondeacontece_2.png" alt="" class="w-100">
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav w-100 justify-content-lg-evenly">
                         <li class="nav-item">
                             <a class="nav-link  text-white active" aria-current="page" href="/ondeacontece/index.php">Home</a>
                         </li>

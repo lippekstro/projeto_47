@@ -28,7 +28,7 @@ class Evento
     {
         try {
             $conexao = Conexao::conectar();
-            $statement = $conexao->prepare('SELECT * FROM eventos ORDER BY ID_EVENTO DESC LIMIT 3');
+            $statement = $conexao->prepare('SELECT * FROM eventos ORDER BY data_evento ASC LIMIT 3');
             $statement->execute();
             $listaDeEventos = $statement->fetchAll();
             return $listaDeEventos;
